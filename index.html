@@ -16,7 +16,7 @@
 				<li>
 					<h2>Section 1</h2>
 					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a> 
+					<a id="one" class="flashcards"><img src="images/flashcard.png"></a> 
 					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
 					<a href="quiz.html"><img src="images/quiz.png"></a>
 				</li>
@@ -24,7 +24,7 @@
 				<li>
 					<h2>Section 2</h2>
 					<br>
-					<a id="two"><img src="images/flashcard.png"></a>
+					<a id="two" class="flashcards"><img src="images/flashcard.png"></a>
 					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
 					<a href="quiz.html"><img src="images/quiz.png"></a>
 				</li>
@@ -83,7 +83,7 @@
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="cardManager.js"></script>
 		<script>
-			$("a").click(function(){
+			$("a.flashcards").click(function(){
 				var id = ($(this).attr('id'));
 				$(this).attr('href',"section" + id + ".html");
 			});

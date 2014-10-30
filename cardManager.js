@@ -101,7 +101,7 @@ var card10 = {
 //Array
 var card = [card1, card2, card3, card4, card5, card6, card7, card8,
 			card9, card10];
-var cardSize = card.length-1;
+var cardSize = card.length - 1;
 
 //Functions
 
@@ -119,17 +119,17 @@ function next() {
 	if (curCard<cardSize){
 		curCard++;
 	}
-	else if (curCard==cardSize){
-		curCard=0;
+	else if (curCard == cardSize){
+		curCard = 0;
 	}
 };
 
 function prev() {
-	if (curCard>0){
+	if (curCard > 0){
 		curCard--;
 	}
-	else if (curCard==0){
-		curCard=cardSize;
+	else if (curCard == 0){
+		curCard = cardSize;
 	}
 	$(".word").html("<h2>" + card[curCard].word + "</h2>");
 	$("#audioPlay").attr("src",card[curCard].audio);

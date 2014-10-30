@@ -2,84 +2,94 @@
 
 <html>
 
-<head>
-	<title>Aviation homepage</title>
-	<link rel="stylesheet" type="text/css" href="home.css">
-</head>
+	<head>
+		<title>Aviation homepage</title>
+		<link rel="stylesheet" type="text/css" href="home.css">
+	</head>
 
 
-<body>
+	<body>
 
-<div id="main">
+		<div id="main">
 
-	<ul>
-		<li>
-			<h2>Section 1</h2>
-			<br>
-			<a href="section1.html"><img src="images/flashcard.png"></a> 
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
+			<ul>
+				<li>
+					<h2>Section 1</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a> 
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
 
-		<li>
-			<h2>Section 2</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-		
-		<li>
-			<h2>Section 3</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	
-		<li>
-			<h2>Section 4</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	
-		<li>
-			<h2>Section 5</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	
-		<li>
-			<h2>Section 6</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	
-		<li>
-			<h2>Section 7</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	
-		<li>
-			<h2>Section 8</h2>
-			<br>
-			<a><img src="images/flashcard.png"></a>
-			<a><img src="images/memoryGame.png"><a>
-			<a><img src="images/quiz.png"></a>
-		</li>
-	</ul>
+				<li>
+					<h2>Section 2</h2>
+					<br>
+					<a id="two"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+				
+				<li>
+					<h2>Section 3</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			
+				<li>
+					<h2>Section 4</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			
+				<li>
+					<h2>Section 5</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			
+				<li>
+					<h2>Section 6</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			
+				<li>
+					<h2>Section 7</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			
+				<li>
+					<h2>Section 8</h2>
+					<br>
+					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+				</li>
+			</ul>
 
-</div>
+		</div>
 
-</body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="cardManager.js"></script>
+		<script>
+			$("a").click(function(){
+				var id = ($(this).attr('id'));
+				$(this).attr('href',"section" + id + ".html");
+			});
+
+		</script>
+
+	</body>
 
 </html>

@@ -6,10 +6,10 @@ body{
 			
 .matching_area{
 
-	padding: auto auto;
+	position:fixed;
 	width:80%;
-	height: 800px;
-	margin: 3em auto;
+	height: 100%;
+	margin: 0% 5%;
 }
 
 .left{
@@ -79,9 +79,7 @@ h2:hover{
 	background-color: gray;
 	opacity: 25%;
 }
-#image{
-	
-}
+
 .image_border{
 	margin: 0% 5%;
 }

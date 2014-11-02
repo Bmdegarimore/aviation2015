@@ -3,6 +3,7 @@
 	// Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e) { 
         var element = e.dataTransfer.getData('text');
+        e.preventDefault();
 
         // if we have a match, replace replace the background color of
         if (element == "chicken") {
@@ -19,7 +20,7 @@
         } 
     }
 
-	  // When dragging starts, set dataTransfer's data to the element's id.
+ 	  // When dragging starts, set dataTransfer's data to the element's id.
     function startShapeDrag(e) {
         e.dataTransfer.setData('text', this.id);
     }
@@ -30,6 +31,7 @@
     document.getElementById("monkey").addEventListener("dragstart", startShapeDrag, false);
     document.getElementById("chicken").addEventListener("dragstart", startShapeDrag, false);
     document.getElementById("chupa").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("jolly").addEventListener("dragstart", startShapeDrag, false);
     document.getElementById("box_input").addEventListener("drop", checkShapeDrop, false);
 	}
 

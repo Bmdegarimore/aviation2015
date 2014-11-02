@@ -1,19 +1,123 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
 <html>
-
 	<head>
 		<title>Memory Quiz</title>
-		<link rel="stylesheet" type="text/css" href="home.css">
+		<style>
+			body {
+				min-width: 600px;
+				max-width: 600px;
+				background-color: #ecf0f1;
+			}
+
+			img {
+				border: 1px solid #aaaaaa;
+			}
+
+			div.empty, div.answer {
+				float:left;
+				width:100px; 
+				height:100px; 
+				margin: 10px;
+				display: block;
+				padding:10px;
+				/*Make sure this color matches background, the exact same! */
+				border: 1px solid #ecf0f1;
+				overflow: hidden;
+			}
+
+			div.answer {
+				border:1px dashed #aaaaaa;
+			}
+
+		</style>
 	</head>
 
+	<body onload="start()">
+		<div id="div1" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-	<body>
+		<div id="div2" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="main">
+		<div id="div3" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div4" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 
-		</div>
+
+		<div id="div5" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div6" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div7" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div8" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+
+		<div id="div9" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div10" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div11" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div12" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+
+		<div id="div13" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div14" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div15" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<div id="div16" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="sectionOne.js"></script>
+		<script>
+			//Picks random cards from the section
+			var card1 = getCard(Math.floor((Math.random() * 10) + 1));
+			var card2 = getCard(Math.floor((Math.random() * 10) + 1));
+			var card3 = getCard(Math.floor((Math.random() * 10) + 1));
+			var card4 = getCard(Math.floor((Math.random() * 10) + 1));
+
+			//Chooses audio or Term datatype>5 >> audio datatype<=5 >> term
+			var datatype = Math.floor((Math.random() * 10) + 1);
+
+			function start(){
+				$("#div6").html(card1.word);
+				$("#div7").html(card2.word);
+				$("#div10").html(card3.word);
+				$("#div11").html(card4.word);
+
+				$("#div2").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay\" src=\"" + card1.audio + "\"></audio>");
+
+				$("#div3").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag2\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay2\" src=\"" + card2.audio + "\"></audio>");
+
+				$("#div14").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag3\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay3\" src=\"" + card3.audio + "\"></audio>");
+
+				$("#div15").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag4\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay4\" src=\"" + card4.audio + "\"></audio>");
+			}
+
+			function allowDrop(ev) {
+			    ev.preventDefault();
+			}
+
+			function drag(ev) {
+			    ev.dataTransfer.setData("text", ev.target.id);
+			}
+
+			function drop(ev) {
+			    ev.preventDefault();
+			    var data = ev.dataTransfer.getData("text");
+			    ev.target.appendChild(document.getElementById(data));
+			}
+
+			function playAudio(){
+				document.getElementById("audioPlay").load();
+				document.getElementById("audioPlay").play();
+			}
+		</script>
 
 	</body>
 

@@ -48,7 +48,7 @@ var card5 = {
 var card6 = {
 	id: "card6",
 	word: "Helicopter",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Helicopter",
 	image: "section1/term6.jpg",
 	description: "A helicopter can hover above the ground!"
 };
@@ -56,7 +56,7 @@ var card6 = {
 var card7 = {
 	id: "card7",
 	word: "High Performance Airplane",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=High%20performance%20airplane",
 	image: "section1/term7.jpg",
 	description: "An F18 is an example of a high performance airplane"
 };
@@ -64,7 +64,7 @@ var card7 = {
 var card8 = {
 	id: "card8",
 	word: "Regional Airline",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Regional%20airline",
 	image: "section1/term8.jpg",
 	description: "Regional airlines travel within the local area."
 };
@@ -72,7 +72,7 @@ var card8 = {
 var card9 = {
 	id: "card9",
 	word: "Major Airline",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Major%20airline",
 	image: "section1/term9.jpg",
 	description: "Major airlines have a lot of customers that travel daily."
 };
@@ -80,7 +80,7 @@ var card9 = {
 var card10 = {
 	id: "card10",
 	word: "Corporate Flying",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Corporate%20flying",
 	image: "section1/term10.jpg",
 	description: "Corporate flying is less fun than recreational flying."
 };
@@ -92,4 +92,8 @@ var cardSize = card.length - 1;
 
 function getCards() {
 	return card;
+}
+
+function getCard(index) {
+	return card[index-1];
 }

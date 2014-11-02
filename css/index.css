@@ -2,13 +2,21 @@ body {
 	font-size: 125%;
 	width: 100%;
 	/*margin-top: 2%;*/
-	background-color: #2ecc71;
-	background-image: url("../images/background.png");
-	position: fixed;
+	
+	height: auto;
+	
 	top: 0;
 	left: 0;
 	background-size: 90%;
-
+	height: auto;
+}
+html { 
+  background: url("../images/background.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #2ecc71;
 }
 
 p{

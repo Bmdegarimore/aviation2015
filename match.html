@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Match Quiz</title>
+		<link  rel="stylesheet" href="css/matchStyle.css">
+	</head>
+	<body>
+		<div class="matching_area">
+				<div id="leftBox" class="left">
+						
+					<h1>Test</h1>
+					<div class="image_border">
+						<img id="image" draggable="false" src="section1/term1.jpg" alt="image">
+					</div>
+						<br>
+					<div id="box_input" ondragover="return false;" ondrop="checkShapeDrop(event);" draggable="false">
+						
+					</div>
+
+				
+				</div>
+				<div class="right">
+					<div id="timer">
+					</div>
+
+					<div id="choices">
+  						<h2 id="bob" draggable="true">Bob
+  						</h2>
+  						<h2 id="monkey" draggable="true">Monkey
+  						</h2>
+  						<h2 id="chicken" draggable="true">Chicken
+  						</h2>
+  						<h2 id="chupa" draggable="true" width="88" height="31">Chupa
+  						</h2>
+  						<h2 id="jolly" draggable="true">Monkey
+  						</h2>
+  					</div>
+				</div>
+			</div>
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+		<script src="script/matchScript.js"></script>
+	</body>
+</html>

@@ -45,7 +45,7 @@
 		</style>
 	</head>
 
-	<body onload="start()">
+	<body onload="cycle()">
 		<a href="index.html">Menu</a>
 		<div id="rapper">
 
@@ -110,7 +110,7 @@
 				mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
 			}
 
-			function start(){
+			function cycle(){
 				//This assigns the data to the div
 				$("#div6").append(mcard1.word);
 				$("#div7").append(mcard2.word);
@@ -150,16 +150,16 @@
 				var answer = eval("mcard"+data.substring(4)).word;
 
 				if(tarid == "div6" && mcard1.word == answer) {
-					alert("Correct!");
+					$("#div6").css("border", "1px solid green");
 				}
 				else if(tarid == "div7" && mcard2.word == answer){
-					alert("Correct!");
+					$("#div7").css("border", "1px solid green");
 				}
 				else if(tarid == "div10" && mcard3.word == answer){
-					alert("Correct!");
+					$("#div10").css("border", "1px solid green");
 				}
 				else if(tarid == "div11" && mcard4.word == answer){
-					alert("Correct!");
+					$("#div11").css("border", "1px solid green");
 				}
 			}
 

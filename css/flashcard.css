@@ -24,14 +24,14 @@ p{
 #next{
 	float:right;
 	margin:1%;
-	position: relative;
+	position: static;
+
 }
 
 #prev{
 	float:left;
 	margin: 1%;
-	position: relative;
-
+	position: static;
 }
 
 #audioIcon{
@@ -50,6 +50,7 @@ p{
 	text-align: center;
 	padding: 1%;
 	border: 8px solid #828d8f;
+	margin-bottom: 5%;
 }
 
 
@@ -69,4 +70,10 @@ p{
 	margin: 0em auto;
 	max-width: 500em;
 	max-height: 2em;
+}
+
+.menu
+{
+	float: left;
+
 }

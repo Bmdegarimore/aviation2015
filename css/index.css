@@ -1,3 +1,12 @@
+html
+{
+	background-image: 
+		linear-gradient(
+      		green,
+      		#2ecc71
+      
+    					);
+}
 body{
 	width:100%;
 	height: auto;
@@ -6,7 +15,6 @@ body{
 	margin: 0;
 	font-size: 125%;
 
-	background-color: #2ecc71;
 }
 
 ul {
@@ -25,15 +33,182 @@ ul li {
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;
 
-   background-color: #fff; 
-	background-image: 
-	linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-	linear-gradient(#eee .1em, transparent .1em);
-	background-size: 100% 1.2em;
-
 }
 
 li:hover
 {
 	opacity: 0.7;
+}
+h1
+{
+	width: 100%;
+	text-align: center;
+}
+
+.mask1 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec1{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask1:hover {
+   opacity: 1;
+}
+.sec1:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask2 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec2{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask2:hover {
+   opacity: 1;
+}
+.sec2:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask3 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec3{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask3:hover {
+   opacity: 1;
+}
+.sec3:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask4 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec4{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask4:hover {
+   opacity: 1;
+}
+.sec4:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask5 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec5{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask5:hover {
+   opacity: 1;
+}
+.sec5:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask6 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec6{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask6:hover {
+   opacity: 1;
+}
+.sec6:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask7 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec7{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask7:hover {
+   opacity: 1;
+}
+.sec7:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
+}
+
+.mask8 {
+   opacity: 0;
+   overflow:visible;
+   
+   box-sizing:border-box;
+   transition: all 0.2s ease-in-out;
+}
+.sec8{
+	 position:relative;
+   top:-10px; /* Center the link */
+   opacity: 0;
+   transition: opacity 0.3s 0s ease-in-out;
+}
+.mask8:hover {
+   opacity: 1;
+}
+.sec8:hover{
+	 opacity:1;
+   transition-delay: 0.2s;
 }

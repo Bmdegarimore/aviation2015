@@ -1,14 +1,20 @@
 (function(){
-	
+	var pos = 0; // Amount of questions to ask
+    var correct = 0; // Number of correct
+
 	// Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
-    function checkShapeDrop(e) { 
+    function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
+        var isCorrect = new Boolean(false);
         e.preventDefault();
 
         // if we have a match, replace replace the background color of
-        if (element == "chicken") {
-        	document.getElementById(e.dataTransfer.getData('text')).style.display = "none";
+        if (element == ("answer"+correctInt)) {
         	document.getElementById("leftBox").className = "correct";
+             setTimeout(function() {
+                document.getElementById("leftBox").className = "left";
+            },(1000));
+            correct++;
         	
         } else { 
             //not a match turns red
@@ -17,7 +23,10 @@
             setTimeout(function() {
             	document.getElementById("leftBox").className = "left";
             },(1000));
+
         } 
+        pos++;
+        initialize();
     }
 
  	  // When dragging starts, set dataTransfer's data to the element's id.
@@ -26,17 +35,75 @@
     }
 
 	    // Assign event listeners to the divs to handle dragging.
-    function initialize() {
-    document.getElementById("bob").addEventListener("dragstart", startShapeDrag, false);
-    document.getElementById("monkey").addEventListener("dragstart", startShapeDrag, false);
-    document.getElementById("chicken").addEventListener("dragstart", startShapeDrag, false);
-    document.getElementById("chupa").addEventListener("dragstart", startShapeDrag, false);
-    document.getElementById("jolly").addEventListener("dragstart", startShapeDrag, false);
-    document.getElementById("box_input").addEventListener("drop", checkShapeDrop, false);
-	}
+    function initialize() 
+    {    
+        
+        var anscard1 = 0;
+        var anscard2 = 0;
+        var anscard3 = 0;
+        var anscard4 = 0;
+        var anscard5 = 0;
+    
+        if(pos >= 4){
+            alert("You got " + correct + " of 3 correct");
+            pos = 0;
+            correct = 0;
+            return false;
+        }
+        
+        // Randomize cards
+        anscard1 = getCard(Math.floor((Math.random() * 10) + 1));
+            
+        anscard2 = getCard(Math.floor((Math.random() * 10) + 1));
+        while(anscard1 == anscard2){
+            anscard2 = getCard(Math.floor((Math.random() * 10) + 1));
+        }
+        
+        anscard3 = getCard(Math.floor((Math.random() * 10) + 1));
+        while(anscard3 == anscard2 || anscard3 == anscard1){
+            anscard3 = getCard(Math.floor((Math.random() * 10) + 1));
+        }
+        
+        anscard4 = getCard(Math.floor((Math.random() * 10) + 1));
+        while(anscard4 == anscard2 || anscard4 == anscard1 || anscard4 == anscard3){
+            anscard4 = getCard(Math.floor((Math.random() * 10) + 1));
+        }
+
+        anscard5 = getCard(Math.floor((Math.random() * 10) + 1));
+        while(anscard5 == anscard2 || anscard5 == anscard1 || anscard5 == anscard3 || anscard5 == anscard4){
+            anscard5 = getCard(Math.floor((Math.random() * 10) + 1));
+        }
+
+        var arrayAns = [anscard1, anscard2, anscard3, anscard4, anscard5];
+        
+        
+        // Pick answer
+        var correctNum = Math.floor((Math.random() * 5) + 1);
+
+        //Initialize first quetion
+        $("#answer1").text(arrayAns[0].word);
+        $("#answer2").text(arrayAns[1].word);
+        $("#answer3").text(arrayAns[2].word);
+        $("#answer4").text(arrayAns[3].word);
+        $("#answer5").text(arrayAns[4].word);
+
+        $("#image").attr("src", arrayAns[(correctNum -1)].image);
+        countdown( "timer", 30 );
+
+
+        document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("answer2").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("answer3").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("answer5").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
+	 
+
+         
+    }
 
    document.addEventListener("DOMContentLoaded", initialize, false);
-
+ 
    function countdown( elementName, seconds )
 	{
     	var element, endTime, msLeft, time;
@@ -60,6 +127,6 @@
         updateTimer();
 	}
 
-countdown( "timer", 30 );
+
 
 }) ();

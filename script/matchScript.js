@@ -1,15 +1,17 @@
 (function(){
-	var pos = 0; // Amount of questions to ask
-    var correct = 0; // Number of correct
+	var pos = null; // Amount of questions to ask
+    var correct = null; // Number of correct
+    var correctNum = null;
 
 	// Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
         var isCorrect = new Boolean(false);
         e.preventDefault();
+        alert(element + " " + "answer" + correctInt);
 
         // if we have a match, replace replace the background color of
-        if (element == ("answer"+correctInt)) {
+        if (element == ("answer"+ correctInt)) {
         	document.getElementById("leftBox").className = "correct";
              setTimeout(function() {
                 document.getElementById("leftBox").className = "left";
@@ -38,11 +40,11 @@
     function initialize() 
     {    
         
-        var anscard1 = 0;
-        var anscard2 = 0;
-        var anscard3 = 0;
-        var anscard4 = 0;
-        var anscard5 = 0;
+        var anscard1 = null;
+        var anscard2 = null;
+        var anscard3 = null;
+        var anscard4 = null;
+        var anscard5 = null;
     
         if(pos >= 4){
             alert("You got " + correct + " of 3 correct");
@@ -78,7 +80,7 @@
         
         
         // Pick answer
-        var correctNum = Math.floor((Math.random() * 5) + 1);
+        correctNum = Math.floor((Math.random() * 5) + 1);
 
         //Initialize first quetion
         $("#answer1").text(arrayAns[0].word);

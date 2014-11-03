@@ -8,7 +8,7 @@
         var element = e.dataTransfer.getData('text');
         var isCorrect = new Boolean(false);
         e.preventDefault();
-        alert(element + " " + "answer" + correctInt);
+      
 
         // if we have a match, replace replace the background color of
         if (element == ("answer"+ correctInt)) {

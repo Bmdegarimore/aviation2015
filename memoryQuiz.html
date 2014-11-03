@@ -5,13 +5,25 @@
 		<title>Memory Quiz</title>
 		<style>
 			body {
-				min-width: 600px;
-				max-width: 600px;
-				background-color: #ecf0f1;
+				min-width: 1000px;
+				max-width: 1000px;
+				background-color: #2ecc71;
 			}
 
 			img {
 				border: 1px solid #aaaaaa;
+			}
+
+			#rapper {
+				min-width: 600px;
+				max-width: 600px;
+				margin-left: 20%;
+				padding-top: 5%;
+				padding-left: 5%;
+				padding-bottom: 60%;
+				border-style: solid;
+				border-color: #22313F;
+				background-color: #ecf0f1;
 			}
 
 			div.empty, div.answer {
@@ -34,46 +46,51 @@
 	</head>
 
 	<body onload="start()">
-		<div id="div1" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<a href="index.html">Menu</a>
+		<div id="rapper">
 
-		<div id="div2" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div1" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div3" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div2" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div4" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div3" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-
-
-		<div id="div5" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-		<div id="div6" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-		<div id="div7" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-		<div id="div8" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div4" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 
 
-		<div id="div9" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div5" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div10" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div6" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div11" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div7" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div12" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div8" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 
 
-		<div id="div13" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div9" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div14" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div10" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div15" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div11" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-		<div id="div16" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div id="div12" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+
+			<div id="div13" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+			<div id="div14" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+			<div id="div15" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+			<div id="div16" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		</div>
 
 		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="sectionOne.js"></script>
+		<script src="script/sectionOne.js"></script>
 		<script>
 			//Picks random cards from the section
 			var mcard1 = getCard(Math.floor((Math.random() * 10) + 1));
@@ -95,10 +112,10 @@
 
 			function start(){
 				//This assigns the data to the div
-				$("#div6").html(mcard1.word);
-				$("#div7").html(mcard2.word);
-				$("#div10").html(mcard3.word);
-				$("#div11").html(mcard4.word);
+				$("#div6").append(mcard1.word);
+				$("#div7").append(mcard2.word);
+				$("#div10").append(mcard3.word);
+				$("#div11").append(mcard4.word);
 
 				$("#div1").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"80\" height=\"80\" onClick=\"playAudio(1)\"> " + "<audio id=\"audioPlay1\" src=\"" + mcard1.audio + "\"></audio>");
 
@@ -133,16 +150,16 @@
 				var answer = eval("mcard"+data.substring(4)).word;
 
 				if(tarid == "div6" && mcard1.word == answer) {
-					alert("aww yis");
+					alert("Correct!");
 				}
 				else if(tarid == "div7" && mcard2.word == answer){
-					alert("aww yis");
+					alert("Correct!");
 				}
 				else if(tarid == "div10" && mcard3.word == answer){
-					alert("aww yis");
+					alert("Correct!");
 				}
 				else if(tarid == "div11" && mcard4.word == answer){
-					alert("aww yis");
+					alert("Correct!");
 				}
 			}
 

@@ -1,5 +1,5 @@
 (function(){
-	var pos = null; // Amount of questions to ask
+	var pos = 1; // Amount of questions to ask
     var correct = null; // Number of correct
     var correctNum = null;
 
@@ -27,7 +27,7 @@
             },(1000));
 
         } 
-        pos++;
+        pos = pos + 1;
         initialize();
     }
 
@@ -48,6 +48,7 @@
     
         if(pos >= 4){
             alert("You got " + correct + " of 3 correct");
+            window.location = "matchResult.html"
             pos = 0;
             correct = 0;
             return false;

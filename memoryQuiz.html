@@ -76,27 +76,37 @@
 		<script src="sectionOne.js"></script>
 		<script>
 			//Picks random cards from the section
-			var card1 = getCard(Math.floor((Math.random() * 10) + 1));
-			var card2 = getCard(Math.floor((Math.random() * 10) + 1));
-			var card3 = getCard(Math.floor((Math.random() * 10) + 1));
-			var card4 = getCard(Math.floor((Math.random() * 10) + 1));
-
-			//Chooses audio or Term datatype>5 >> audio datatype<=5 >> term
-			var datatype = Math.floor((Math.random() * 10) + 1);
+			var mcard1 = getCard(Math.floor((Math.random() * 10) + 1));
+			
+			var mcard2 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard1 == mcard2){
+				mcard2 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
+			
+			var mcard3 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard3 == mcard2 || mcard3 == mcard1){
+				mcard3 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
+			
+			var mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
+			while(mcard4 == mcard2 || mcard4 == mcard1 || mcard4 == mcard3){
+				mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
+			}
 
 			function start(){
-				$("#div6").html(card1.word);
-				$("#div7").html(card2.word);
-				$("#div10").html(card3.word);
-				$("#div11").html(card4.word);
+				//This assigns the data to the div
+				$("#div6").html(mcard1.word);
+				$("#div7").html(mcard2.word);
+				$("#div10").html(mcard3.word);
+				$("#div11").html(mcard4.word);
 
-				$("#div2").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay\" src=\"" + card1.audio + "\"></audio>");
+				$("#div1").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"80\" height=\"80\" onClick=\"playAudio(1)\"> " + "<audio id=\"audioPlay1\" src=\"" + mcard1.audio + "\"></audio>");
 
-				$("#div3").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag2\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay2\" src=\"" + card2.audio + "\"></audio>");
+				$("#div4").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag2\" width=\"80\" height=\"80\" onClick=\"playAudio(2)\"> " + "<audio id=\"audioPlay2\" src=\"" + mcard2.audio + "\"></audio>");
 
-				$("#div14").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag3\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay3\" src=\"" + card3.audio + "\"></audio>");
+				$("#div13").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag3\" width=\"80\" height=\"80\" onClick=\"playAudio(3)\"> " + "<audio id=\"audioPlay3\" src=\"" + mcard3.audio + "\"></audio>");
 
-				$("#div15").html("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag4\" width=\"80\" height=\"80\" onClick=\"playAudio()\"> " + "<audio id=\"audioPlay4\" src=\"" + card4.audio + "\"></audio>");
+				$("#div16").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag4\" width=\"80\" height=\"80\" onClick=\"playAudio(4)\"> " + "<audio id=\"audioPlay4\" src=\"" + mcard4.audio + "\"></audio>");
 			}
 
 			function allowDrop(ev) {
@@ -111,12 +121,31 @@
 			    ev.preventDefault();
 			    var data = ev.dataTransfer.getData("text");
 			    ev.target.appendChild(document.getElementById(data));
+			    checkAnswer(data, ev.target.id);
 			}
 
-			function playAudio(){
-				document.getElementById("audioPlay").load();
-				document.getElementById("audioPlay").play();
+			function playAudio(num){
+				document.getElementById("audioPlay"+num).load();
+				document.getElementById("audioPlay"+num).play();
 			}
+
+			function checkAnswer(data, tarid){
+				var answer = eval("mcard"+data.substring(4)).word;
+
+				if(tarid == "div6" && mcard1.word == answer) {
+					alert("aww yis");
+				}
+				else if(tarid == "div7" && mcard2.word == answer){
+					alert("aww yis");
+				}
+				else if(tarid == "div10" && mcard3.word == answer){
+					alert("aww yis");
+				}
+				else if(tarid == "div11" && mcard4.word == answer){
+					alert("aww yis");
+				}
+			}
+
 		</script>
 
 	</body>

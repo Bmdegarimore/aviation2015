@@ -1,14 +1,14 @@
 (function(){
 	var pos = 1; // Amount of questions to ask
-    var correct = null; // Number of correct
-    var correctNum = null;
+    var correct = 0; // Number of correct
+    var correctNum = null; //Stores the correct answer for the question
 
 	// Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
-        var isCorrect = new Boolean(false);
+        var isCorrect = false;
         e.preventDefault();
-      
+        
 
         // if we have a match, replace replace the background color of
         if (element == ("answer"+ correctInt)) {
@@ -16,9 +16,10 @@
              setTimeout(function() {
                 document.getElementById("leftBox").className = "left";
             },(1000));
-            correct++;
-        	
-        } else { 
+            correct++;	
+        } 
+
+        else { 
             //not a match turns red
             document.getElementById("leftBox").className = "incorrect";
 
@@ -45,13 +46,14 @@
         var anscard3 = null;
         var anscard4 = null;
         var anscard5 = null;
-    
-        if(pos >= 4){
+        
+        //pos should be tested for 1 more than the number of questions. Example: pos>5 >> 4 questions
+        if(pos > 4){
             alert("You got " + correct + " of 3 correct");
             window.location = "matchResult.html"
             pos = 0;
             correct = 0;
-            return false;
+            //return false;
         }
         
         // Randomize cards
@@ -82,33 +84,32 @@
         
         // Pick answer
         correctNum = Math.floor((Math.random() * 5) + 1);
+        //Possible outcomes: 1, 2, 3, 4, 5
 
-        //Initialize first quetion
-        $("#answer1").text(arrayAns[0].word);
+        //Initialize first question
+        $("#answer1").text(arrayAns[0].word); //Possible Answers On the right
         $("#answer2").text(arrayAns[1].word);
         $("#answer3").text(arrayAns[2].word);
         $("#answer4").text(arrayAns[3].word);
         $("#answer5").text(arrayAns[4].word);
 
-        $("#image").attr("src", arrayAns[(correctNum -1)].image);
-        countdown( "timer", 30 );
+        $("#image").attr("src", arrayAns[(correctNum -1)].image); //Puts the correct answer image on the left
+        
+        countdown( "timer", 30 ); //Calls the countdown function
 
-
-        document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
+        document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false); //Add Event listeners
         document.getElementById("answer2").addEventListener("dragstart", startShapeDrag, false);
         document.getElementById("answer3").addEventListener("dragstart", startShapeDrag, false);
         document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
         document.getElementById("answer5").addEventListener("dragstart", startShapeDrag, false);
         document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
-	 
-
          
     }
 
-   document.addEventListener("DOMContentLoaded", initialize, false);
+    document.addEventListener("DOMContentLoaded", initialize, false);
  
-   function countdown( elementName, seconds )
-	{
+    function countdown( elementName, seconds )
+    {
     	var element, endTime, msLeft, time;
 
     	// Checks to see if the countdown reaches less than 1 sec and displays a message

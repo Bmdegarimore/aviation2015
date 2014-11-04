@@ -1,24 +1,28 @@
 (function(){
-	var pos = 1; // Amount of questions to ask
-    var correct = null; // Number of correct
+	var question = 1; // Amount of questions to ask
+    var correct = 0; // Number of correct
     var correctNum = null;
 
 	// Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
-        var isCorrect = new Boolean(false);
+
+        // Prevents default code for drop to execute
         e.preventDefault();
       
-
+          
         // if we have a match, replace replace the background color of
         if (element == ("answer"+ correctInt)) {
         	document.getElementById("leftBox").className = "correct";
-             setTimeout(function() {
+        
+            setTimeout(function() {
                 document.getElementById("leftBox").className = "left";
             },(1000));
-            correct++;
+        
+            correct = correct + 1;
         	
-        } else { 
+        } 
+        else { 
             //not a match turns red
             document.getElementById("leftBox").className = "incorrect";
 
@@ -27,7 +31,8 @@
             },(1000));
 
         } 
-        pos = pos + 1;
+
+        question = question + 1;
         initialize();
     }
 
@@ -45,13 +50,11 @@
         var anscard3 = null;
         var anscard4 = null;
         var anscard5 = null;
-    
-        if(pos >= 4){
+        
+        if(question > 3){
             alert("You got " + correct + " of 3 correct");
-            window.location = "matchResult.html"
-            pos = 0;
-            correct = 0;
-            return false;
+            window.location = "quizResult.html";
+
         }
         
         // Randomize cards
@@ -91,19 +94,15 @@
         $("#answer5").text(arrayAns[4].word);
 
         $("#image").attr("src", arrayAns[(correctNum -1)].image);
-        countdown( "timer", 30 );
-
-
-        document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
-        document.getElementById("answer2").addEventListener("dragstart", startShapeDrag, false);
-        document.getElementById("answer3").addEventListener("dragstart", startShapeDrag, false);
-        document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
-        document.getElementById("answer5").addEventListener("dragstart", startShapeDrag, false);
-        document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
-	 
-
-         
+        countdown( "timer", 30);  
     }
+
+    document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("answer2").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("answer3").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("answer5").addEventListener("dragstart", startShapeDrag, false);
+    document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
 
    document.addEventListener("DOMContentLoaded", initialize, false);
  

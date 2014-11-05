@@ -3,6 +3,7 @@
     var correct = 0; // Number of correct
     var correctNum = null;
 
+
     // Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
@@ -31,7 +32,7 @@
             },(1000));
 
         } 
-
+        
         question = question + 1;
         initialize();
     }
@@ -44,7 +45,8 @@
         // Assign event listeners to the divs to handle dragging.
     function initialize() 
     {    
-        
+        // Boolean keeps track of question. If question is answered timer 
+        // stops and resets.
         var anscard1 = null;
         var anscard2 = null;
         var anscard3 = null;
@@ -94,7 +96,7 @@
         $("#answer5").text(arrayAns[4].word);
 
         $("#image").attr("src", arrayAns[(correctNum -1)].image);
-        countdown( "timer", 30);  
+         
     }
 
     document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
@@ -105,30 +107,22 @@
     document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
 
    document.addEventListener("DOMContentLoaded", initialize, false);
- 
-   function countdown( elementName, seconds )
-    {
-        var element, endTime, msLeft, time;
+   
+   var timer;
+   var counter = 10;
+       if(!timer){
+          timer = setInterval(function() {
+         counter--;
+          if (counter >= 0) {
+             span = document.getElementById("timer");
+             span.innerHTML = counter;
+          }else if (counter < 0) {
+              span.innerHTML = "Time's\nup!";
+             clearInterval(timer);
+           }
+         }, 1000);
+       }
 
-        // Checks to see if the countdown reaches less than 1 sec and displays a message
-        // else if keeps counting down
-        function updateTimer()
-        {
-            msLeft = endTime - (+new Date);
-            if ( msLeft < 1000 ) {
-                element.innerHTML = "Time's\n up!";
-            } else {
-                time = new Date( msLeft );
-                element.innerHTML = (time.getUTCSeconds() );
-                setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-            }
-        }
-
-        element = document.getElementById( elementName );
-        endTime = (+new Date) + 1000 * (seconds);
-        updateTimer();
-    }
-
-
+   
 
 }) ();

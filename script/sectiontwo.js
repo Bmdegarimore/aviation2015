@@ -8,7 +8,7 @@
 var card1 = {
 	id: "card1",
 	word: "Fuselage",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Fuselage",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=fuselage",
 	image: "section2/term1.jpg",
 	description: "The fuselage is the passenger section of a plane."
 };
@@ -16,7 +16,7 @@ var card1 = {
 var card2 = {
 	id: "card2",
 	word: "Flaps",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Flaps",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=flaps",
 	image: "section2/term2.jpg",
 	description: "Flaps are used to adjust pitch."
 };
@@ -24,7 +24,7 @@ var card2 = {
 var card3 = {
 	id: "card3",
 	word: "Wings",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Wings",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=wings",
 	image: "section2/term3.jpg",
 	description: "Wings allow the plane to glide."
 };
@@ -32,7 +32,7 @@ var card3 = {
 var card4 = {
 	id: "card4",
 	word: "Empennage",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Empennage",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=empennage",
 	image: "section2/term4.jpg",
 	description: "The empennage is the tail end of plane."
 };
@@ -40,7 +40,7 @@ var card4 = {
 var card5 = {
 	id: "card5",
 	word: "Ailerons",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Ailerons",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=ailerons",
 	image: "section2/term5.jpg",
 	description: "Ailerons are used to adjust drag and aerodynamics on the wings."
 };
@@ -56,7 +56,7 @@ var card6 = {
 var card7 = {
 	id: "card7",
 	word: "Flight Controls",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Flight%20Controls",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=flight%20controls",
 	image: "section2/term7.jpg",
 	description: "The flight controls are on the wings, used for pitch, yaw, etc."
 };
@@ -64,7 +64,7 @@ var card7 = {
 var card8 = {
 	id: "card8",
 	word: "Nosewheel",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Nose%20Wheel",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=nose%20wheel",
 	image: "section2/term8.jpg",
 	description: "The nosewheel of a plane is located in the front."
 };
@@ -72,7 +72,7 @@ var card8 = {
 var card9 = {
 	id: "card9",
 	word: "Main Wheels",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Main%20Wheels",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=main%20wheels",
 	image: "section2/term9.jpg",
 	description: "The main wheels are the back wheels on the plane."
 };
@@ -80,7 +80,7 @@ var card9 = {
 var card10 = {
 	id: "card10",
 	word: "Tricycle Gear",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Tricycle%20Gear",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=tricycle%20gear",
 	image: "section2/term10.jpg",
 	description: "Tricycle gear planes have 1 nose wheel and two main wheels."
 };

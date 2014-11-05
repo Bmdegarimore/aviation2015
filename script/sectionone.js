@@ -8,7 +8,7 @@
 var card1 = {
 	id: "card1",
 	word: "International Civil Aviation Organization (ICAO)",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=International%20Civil%20Aviation%Organization%20(ICAO)",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=International%20Civil%20Aviation%20Organization%20I%20C%20A%20O",
 	image: "section1/term1.jpg",
 	description: "The ICAO is responsible for global aviation."
 };
@@ -64,7 +64,7 @@ var card7 = {
 var card8 = {
 	id: "card8",
 	word: "Regional Airline",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Regional%20airline",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=regional%20airline",
 	image: "section1/term8.jpg",
 	description: "Regional airlines travel within the local area."
 };
@@ -72,7 +72,7 @@ var card8 = {
 var card9 = {
 	id: "card9",
 	word: "Major Airline",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Major%20airline",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=major%20airline",
 	image: "section1/term9.jpg",
 	description: "Major airlines have a lot of customers that travel daily."
 };
@@ -80,7 +80,7 @@ var card9 = {
 var card10 = {
 	id: "card10",
 	word: "Corporate Flying",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Corporate%20flying",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=corporate%20flying",
 	image: "section1/term10.jpg",
 	description: "Corporate flying is less fun than recreational flying."
 };

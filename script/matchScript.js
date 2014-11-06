@@ -3,6 +3,12 @@
     var correct = 0; // Number of correct
     var correctNum = null;
 
+    var time; // Timer variable to set and clear function
+    var timerOn = 0;
+    var changeCounter = 30;
+    var counter = 0;
+
+
     // Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
         var element = e.dataTransfer.getData('text');
@@ -18,7 +24,7 @@
             setTimeout(function() {
                 document.getElementById("leftBox").className = "left";
             },(1000));
-        
+
             correct = correct + 1;
             
         } 
@@ -31,7 +37,8 @@
             },(1000));
 
         } 
-
+        
+        stopCount();
         question = question + 1;
         initialize();
     }
@@ -44,7 +51,8 @@
         // Assign event listeners to the divs to handle dragging.
     function initialize() 
     {    
-        
+        // Boolean keeps track of question. If question is answered timer 
+        // stops and resets.
         var anscard1 = null;
         var anscard2 = null;
         var anscard3 = null;
@@ -56,45 +64,63 @@
             window.location = "quizResult.html";
 
         }
+        else
+        {
         
-        // Randomize cards
-        anscard1 = getCard(Math.floor((Math.random() * 10) + 1));
-            
-        anscard2 = getCard(Math.floor((Math.random() * 10) + 1));
-        while(anscard1 == anscard2){
+            // Randomize cards
+            anscard1 = getCard(Math.floor((Math.random() * 10) + 1));
+                
             anscard2 = getCard(Math.floor((Math.random() * 10) + 1));
-        }
-        
-        anscard3 = getCard(Math.floor((Math.random() * 10) + 1));
-        while(anscard3 == anscard2 || anscard3 == anscard1){
+            while(anscard1 == anscard2){
+                anscard2 = getCard(Math.floor((Math.random() * 10) + 1));
+            }
+            
             anscard3 = getCard(Math.floor((Math.random() * 10) + 1));
-        }
-        
-        anscard4 = getCard(Math.floor((Math.random() * 10) + 1));
-        while(anscard4 == anscard2 || anscard4 == anscard1 || anscard4 == anscard3){
+            while(anscard3 == anscard2 || anscard3 == anscard1){
+                anscard3 = getCard(Math.floor((Math.random() * 10) + 1));
+            }
+            
             anscard4 = getCard(Math.floor((Math.random() * 10) + 1));
-        }
+            while(anscard4 == anscard2 || anscard4 == anscard1 || anscard4 == anscard3){
+                anscard4 = getCard(Math.floor((Math.random() * 10) + 1));
+            }
 
-        anscard5 = getCard(Math.floor((Math.random() * 10) + 1));
-        while(anscard5 == anscard2 || anscard5 == anscard1 || anscard5 == anscard3 || anscard5 == anscard4){
             anscard5 = getCard(Math.floor((Math.random() * 10) + 1));
-        }
+            while(anscard5 == anscard2 || anscard5 == anscard1 || anscard5 == anscard3 || anscard5 == anscard4){
+                anscard5 = getCard(Math.floor((Math.random() * 10) + 1));
+            }
 
-        var arrayAns = [anscard1, anscard2, anscard3, anscard4, anscard5];
-        
-        
-        // Pick answer
-        correctNum = Math.floor((Math.random() * 5) + 1);
+            var arrayAns = [anscard1, anscard2, anscard3, anscard4, anscard5];
+            
+            
+            // Pick answer
+            correctNum = Math.floor((Math.random() * 5) + 1);
 
-        //Initialize first quetion
-        $("#answer1").text(arrayAns[0].word);
-        $("#answer2").text(arrayAns[1].word);
-        $("#answer3").text(arrayAns[2].word);
-        $("#answer4").text(arrayAns[3].word);
-        $("#answer5").text(arrayAns[4].word);
+            // if it is the first question than the correct number is stored in previous correct.
+            // This is used to compare newer questions with the previous to minimize duplicate questions.
+            if (question == 1){
 
-        $("#image").attr("src", arrayAns[(correctNum -1)].image);
-        countdown( "timer", 30);  
+                prevCorrect = correctNum;
+            }
+            else{
+
+                while (correctNum == prevCorrect){
+                    correctNum = Math.floor((Math.random() * 5) + 1);
+                }
+               prevCorrect = correctNum; 
+            }
+
+            //Initialize first quetion
+            $("#answer1").text(arrayAns[0].word);
+            $("#answer2").text(arrayAns[1].word);
+            $("#answer3").text(arrayAns[2].word);
+            $("#answer4").text(arrayAns[3].word);
+            $("#answer5").text(arrayAns[4].word);
+
+            $("#image").attr("src", arrayAns[(correctNum -1)].image);
+            
+            startCount(); // Start count down based on global counter variable.
+       }      
     }
 
     document.getElementById("answer1").addEventListener("dragstart", startShapeDrag, false);
@@ -105,30 +131,45 @@
     document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
 
    document.addEventListener("DOMContentLoaded", initialize, false);
- 
-   function countdown( elementName, seconds )
-    {
-        var element, endTime, msLeft, time;
-
-        // Checks to see if the countdown reaches less than 1 sec and displays a message
-        // else if keeps counting down
-        function updateTimer()
-        {
-            msLeft = endTime - (+new Date);
-            if ( msLeft < 1000 ) {
-                element.innerHTML = "Time's\n up!";
-            } else {
-                time = new Date( msLeft );
-                element.innerHTML = (time.getUTCSeconds() );
-                setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-            }
+   
+   
+    // Used to display count down timer and if timer reaches zero than 
+    // the question is counted and next question is asked.
+    function timedCount(){
+        var displayCounter = document.getElementById("timer");
+        
+        displayCounter.innerHTML = counter;
+        
+        if (counter < 0){
+            displayCounter.innerHTML = "Time's\nup!";
+            stopCount();
+            question = question + 1;
+            initialize();
         }
-
-        element = document.getElementById( elementName );
-        endTime = (+new Date) + 1000 * (seconds);
-        updateTimer();
+        else
+        {
+            counter = counter - 1;
+            time = setTimeout(function(){timedCount()}, 1000);
+        }
     }
 
+       function startCount()
+       {
+            counter = changeCounter;
 
+            if (!timerOn) 
+            {
+                
+                timerOn = 1;
+                timedCount();
+            }
+       }
+
+       function stopCount(){
+            clearTimeout(time);
+            timerOn = 0;
+       }
+
+       
 
 }) ();

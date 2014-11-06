@@ -8,7 +8,7 @@
 var card1 = {
 	id: "card1",
 	word: "International Civil Aviation Organization (ICAO)",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=International%20Civil%20Aviation%20Organization%20I%20C%20A%20O",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=international%20Civil%20Aviation%20Organization%20I%20C%20A%20O",
 	image: "section1/term1.jpg",
 	description: "The ICAO is responsible for global aviation."
 };
@@ -16,7 +16,7 @@ var card1 = {
 var card2 = {
 	id: "card2",
 	word: "Federal Aviation Administration (FAA)",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Federal%20Aviation%20Administration%20(FAA)",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=federal%20Aviation%20Administration%20(FAA)",
 	image: "section1/term2.jpg",
 	description: "The FAA works hard to maintain safety standards!"
 };
@@ -32,7 +32,7 @@ var card3 = {
 var card4 = {
 	id: "card4",
 	word: "Temporary License",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Temporary%20license",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=temporary%20license",
 	image: "section1/term4.jpg",
 	description: "A temporary license will do until the license comes in the mail."
 };
@@ -40,7 +40,7 @@ var card4 = {
 var card5 = {
 	id: "card5",
 	word: "Airplane Flight Manual",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Airplane%20flight%20manual",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=airplane%20flight%20manual",
 	image: "section1/term5.jpg",
 	description: "Make sure you read the airplane flight manual before flying."
 };
@@ -48,7 +48,7 @@ var card5 = {
 var card6 = {
 	id: "card6",
 	word: "Helicopter",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Helicopter",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=helicopter",
 	image: "section1/term6.jpg",
 	description: "A helicopter can hover above the ground!"
 };
@@ -56,7 +56,7 @@ var card6 = {
 var card7 = {
 	id: "card7",
 	word: "High Performance Airplane",
-	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=High%20performance%20airplane",
+	audio: "http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=high%20performance%20airplane",
 	image: "section1/term7.jpg",
 	description: "An F18 is an example of a high performance airplane"
 };

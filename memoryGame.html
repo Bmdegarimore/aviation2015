@@ -3,90 +3,89 @@
 <html>
 	<head>
 		<title>Memory Quiz</title>
-
 		<style>
-			body {
-				min-width: 1000px;
-				max-width: 1000px;
-				background-color: #2ecc71;
-			}
-
-			img {
-				border: 1px solid #aaaaaa;
-			}
-
 			#rapper {
-				min-width: 600px;
-				max-width: 600px;
-				margin-left: 20%;
-				padding-top: 5%;
-				padding-left: 5%;
-				padding-bottom: 60%;
-				border-style: solid;
-				border-color: #22313F;
-				background-color: #ecf0f1;
+				margin-right: 15%;
+				margin-left: 15%;
+				background-color: #86adf2;
+				background-position: center;
+				padding: 0% 0% 40% 5%;
 			}
 
-			div.empty, div.answer {
+			.row {
+				margin-left: 15%;
+				margin-right: 15%;
+			}
+
+			div.slot {
 				float:left;
-				width:100px; 
-				height:100px; 
 				margin: 10px;
 				display: block;
 				padding:10px;
 				/*Make sure this color matches background, the exact same! */
-				border: 1px solid #ecf0f1;
+				border:1px dashed #aaaaaa;
 				overflow: hidden;
 			}
 
-			div.answer {
-				border:1px dashed #aaaaaa;
+			p {
+				text-align: center;
+				font-size: 1.25em;
 			}
-
 		</style>
 	</head>
 
-	<body onload="cycle()">
+	<body onload="">
 		<a href="index.html">Menu</a>
 		<div id="rapper">
+			<div class = 'row'>
+				<br>
 
-			<div id="div1" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div id="div1" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card1'>
+				</div>
 
-			<div id="div2" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div id="div2" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card2'>
+				</div>
 
-			<div id="div3" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div id="div3" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card3'>
+				</div>
+			</div>
 
-			<div id="div4" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<br>
 
+			<div class = 'row'>
+				<div id="div4" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card4'>
+				</div>
 
+				<div id="div5" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card5'>
+				</div>
 
-			<div id="div5" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div id="div6" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card6'>
+				</div>
+			</div>
 
-			<div id="div6" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<br>
 
-			<div id="div7" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class = 'row'>
+				<div id="div7" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card7'>
+				</div>
 
-			<div id="div8" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+				<div id="div8" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card8'>
+				</div>
 
+				<div id="div9" class="slot">
+					<img src="images/memoryGameCard.png" width="100" height="100" id='card9'>
+				</div>
+			</div>
 
-
-			<div id="div9" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div10" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div11" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div12" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-
-
-			<div id="div13" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div14" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div15" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-			<div id="div16" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<br>
 
 		</div>
 
@@ -111,6 +110,13 @@
 				mcard4 = getCard(Math.floor((Math.random() * 10) + 1));
 			}
 
+			//These variables hold a true/false value to know if either of two cards is clicked yet
+			var firsthidden = true;
+			var secondhidden = true;
+
+			var selectionone = null;
+			var selectiontwo = null;
+
 			function cycle(){
 				//This assigns the data to the div
 				$("#div6").append(mcard1.word);
@@ -118,13 +124,13 @@
 				$("#div10").append(mcard3.word);
 				$("#div11").append(mcard4.word);
 
-				$("#div1").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag1\" width=\"80\" height=\"80\" onClick=\"playAudio(1)\"> " + "<audio id=\"audioPlay1\" src=\"" + mcard1.audio + "\"></audio>");
+				$("#div1").append("<img src=\"images/audioicon.png\" draggable=\"true\" width=\"80\" height=\"80\" onClick=\"playAudio(1)\"> " + "<audio id=\"audioPlay1\" src=\"" + mcard1.audio + "\"></audio>");
 
 				$("#div4").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag2\" width=\"80\" height=\"80\" onClick=\"playAudio(2)\"> " + "<audio id=\"audioPlay2\" src=\"" + mcard2.audio + "\"></audio>");
 
-				$("#div13").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag3\" width=\"80\" height=\"80\" onClick=\"playAudio(3)\"> " + "<audio id=\"audioPlay3\" src=\"" + mcard3.audio + "\"></audio>");
+				$("#div13").append("<img src=\"images/audioicon.png\" draggable=\"true\" width=\"80\" height=\"80\" onClick=\"playAudio(3)\"> " + "<audio id=\"audioPlay3\" src=\"" + mcard3.audio + "\"></audio>");
 
-				$("#div16").append("<img src=\"images/audioicon.png\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"drag4\" width=\"80\" height=\"80\" onClick=\"playAudio(4)\"> " + "<audio id=\"audioPlay4\" src=\"" + mcard4.audio + "\"></audio>");
+				$("#div16").append("<img src=\"images/audioicon.png\" width=\"80\" height=\"80\" onClick=\"playAudio(4)\"> " + "<audio id=\"audioPlay4\" src=\"" + mcard4.audio + "\"></audio>");
 			}
 
 			function allowDrop(ev) {
@@ -164,6 +170,30 @@
 				}
 			}
 
+			$(".slot").click(function(){
+				//Tests to see if one card has been flipped, flips one
+				if(firsthidden){
+					$(this).html("<p>This is a test</p>");
+					//selectionone = this;
+					firsthidden = false;
+				}
+				//flips a second card if the second card hasn't been flipped. 
+				else if(secondhidden){
+					$(this).html("<p>This is a test</p>");
+					//selectionone = ;
+					secondhidden = false;
+				}
+				else {
+					//resetCards();
+					firsthidden = true;
+					secondhidden = true;
+				}
+			});
+
+			function resetCards(cardi, carde){
+				selectionone.html("<img src='images/memoryGameCard.png' width='100' height='100'>");
+				selectionone.html("<img src='images/memoryGameCard.png' width='100' height='100'>");
+			}
 		</script>
 
 	</body>

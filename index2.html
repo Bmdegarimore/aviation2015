@@ -1,0 +1,200 @@
+<html>
+
+	<head>
+		<title>Aviation homepage</title>
+		<link rel="stylesheet" type="text/css" href="css/index2.css">
+	</head>
+
+
+	<body>
+		<h1>Aviation Vocabulary</h1>
+		
+			<div class="cards">Section 1
+    		<img src="section1/term1.jpg">
+			</div>
+			<div class="cards">Section 2
+    		<img src="section1/term5.jpg">
+			</div>
+			<div class="cards">Section 3
+   			 <img src="section1/term4.jpg">
+			</div>
+			<div class="cards">Section 4
+    		<img src="section1/term2.jpg">
+			</div>
+			<div class="cards">Section 5
+    		<img src="section1/term7.jpg">
+			</div>
+			<div class="cards">Section 6
+    		<img src="section1/term3.jpg">
+			</div>
+			<div class="cards">Section 7
+    		<img src="section1/term6.jpg">
+			</div>
+			<div class="cards">Section 8
+   			<img src="section1/term9.jpg">
+			</div>
+
+			<div id="cardClone">
+   			 	<div id="cloneFront"></div>
+    			<div id="cloneBack">Select One:
+    				<div class="cardsback">Section 1
+    				<a id="one" class="flashcards"><img src="images/flashcard.png"></a> 
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+					</div>
+    			</div>
+			</div>
+
+			<div class="cardsback">Section 1
+    				<a id="one" class="flashcards"><img src="images/flashcard.png"></a> 
+					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
+					<a href="quiz.html"><img src="images/quiz.png"></a>
+			</div>
+			<div class="cardsback">Section 2
+    		
+			</div>
+			<div class="cardsback">Section 3
+   			
+			</div>
+			<div class="cardsback">Section 4
+    		
+			</div>
+			<div class="cardsback">Section 5
+    		
+			</div>
+			<div class="cardsback">Section 6
+    		
+			</div>
+			<div class="cardsback">Section 7
+    		
+			</div>
+			<div class="cardsback">Section 8
+   			
+			</div>
+
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="script/cardManager.js"></script>
+		<script>
+
+			//Cache the clone.
+			$clone = $('#cardClone');
+
+			//Set a global for the card we just clicked so we can track it
+			$lastelement = "";
+
+			//Set up an object for last clicked element so we know where to return to on collapse
+			lastelement = {
+    			'top': 0,
+        		'left': 0,
+        		'width': 0,
+        		'height': 0
+			};
+
+			//Set a flag to determine the current flip state of our clone
+			cloneflipped = false;
+
+			//Bind a handler to the clone so we can detect when the transition is done
+			$('#cardClone').on("transitionend webkitTransitionEnd oTransitionEnd", function (e) {
+    		if (e.target === e.currentTarget) {
+        		if (e.originalEvent.propertyName == 'top') {
+
+           		 //Toggle the clone state
+            	cloneflipped = !cloneflipped;
+
+            	//Detect if our clone has returned to the original position and then hide it
+            	if (!cloneflipped) {
+                	$($lastelement).css('opacity', 1);
+               		 $($clone).hide();
+            		}
+            		 else {}
+       		 }
+    		}
+			});
+
+
+			$(".cards").click(function () {
+    			if (!cloneflipped) {
+       			 //Cache clicked card
+        		$lastelement = $(this);
+
+        		var offset = $lastelement.offset();
+        		lastelement.top = offset.top - 30 - $(document).scrollTop();
+        		lastelement.left = offset.left - 30;
+        		lastelement.width = $lastelement.width();
+        		lastelement.height = $lastelement.height();
+
+        		
+        		var rotatefront = "rotateY(180deg)";
+        		var rotateback = "rotateY(0deg)";
+        		if ((lastelement.left + lastelement.width / 2) > $(window).width() / 2) {
+            		rotatefront = "rotateY(-180deg)";
+            		rotateback = "rotateY(-360deg)";
+        			}
+
+
+        		//Copy contents of the clicked card into the clones front card
+        		$clone.find('#cloneFront').html($lastelement.html());
+
+
+        		//Show the clone on top of the clicked card and hide the clicked card
+        		$clone.css({
+            		'display': 'block',
+                	'top': lastelement.top,
+                	'left': lastelement.left
+        		});
+        	$lastelement.css('opacity', 0);
+
+        	$('#cloneBack').html();
+
+        	//Flip the card while centering it in the screen
+        	setTimeout(function () {
+            	$clone.css({
+                	'top': '40px',
+                   	 'left': '40px',
+                    	'height': '75%',
+                   	 'width': $(document).width() - 140 + 'px'
+           		 });
+           	 $clone.find('#cloneFront').css({
+                'transform': rotatefront
+            });
+            $clone.find('#cloneBack').css({
+                'transform': rotateback
+            });
+        }, 100);
+    } else {
+        $('body').click();
+    }
+});
+
+
+//If user clicks outside of the flipped card, return to default state
+$('body').click(function (e) {
+    if (cloneflipped) {
+        if (e.target === e.currentTarget) {
+            //Reverse the animation
+            $clone.css({
+                'top': lastelement.top + 'px',
+                    'left': lastelement.left + 'px',
+                    'height': lastelement.height + 'px',
+                    'width': lastelement.width + 'px'
+            });
+            $clone.find('#cloneFront').css({
+                'transform': 'rotateY(0deg)'
+            });
+            $clone.find('#cloneBack').css({
+                'transform': 'rotateY(-180deg)'
+            });
+        }
+    }
+});
+
+$("a.flashcards").click(function(){
+				var id = ($(this).attr('id'));
+				$(this).attr('href',"section" + id + ".html");
+			});
+
+		</script>
+
+	</body>
+
+</html>

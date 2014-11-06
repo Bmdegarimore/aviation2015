@@ -11,11 +11,12 @@
 	<body>
 		<h1>Aviation Vocabulary</h1>
 		<div id="main">
+			<div class="cards">
 			<ul>
 				<li id = "s1">
-					<h2>Section 1</h2>
+					<h2 id = "sec1">Section 1</h2>
 					<div class = "sec">
-					<div class = "mask">
+					<div class = "mask1">
 					<br>
 					<a id="one" class="flashcards"><img src="images/flashcard.png"></a> 
 					<a href="memoryQuiz.html"><img src="images/memoryGame.png"><a>
@@ -107,16 +108,18 @@
 					</div>
 					</div>
 				</li>
+
 			</ul>
 
-		</div>
-		
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="script/cardManager.js"></script>
 		<script>
 			$("a.flashcards").click(function(){
 				var id = ($(this).attr('id'));
 				$(this).attr('href',"section" + id + ".html");
+			});
+			$("#s1").click(function(){
+    			$(this).toggleClass("flip"); 
 			});
 
 		</script>

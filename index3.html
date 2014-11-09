@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Aviation homepage</title>
+		<link rel="stylesheet" type="text/css" href="css/index3.css">
+	</head>
+
+
+	<body>
+		<h1>Aviation Vocabulary</h1>
+		<div id="main">
+
+		</div>
+			
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="script/cardManager.js"></script>
+		<script>
+			$("a.flashcards").click(function(){
+				var id = ($(this).attr('id'));
+				$(this).attr('href',"section" + id + ".html");
+			});
+			$("#s1").click(function(){
+    			$(this).toggleClass("flip"); 
+			});
+
+		</script>
+
+	</body>
+
+</html>

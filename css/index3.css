@@ -1,0 +1,20 @@
+body{
+	width:100%;
+	height: auto;
+	min-height: 50%;
+	min-width: 50%;
+	margin: 0;
+	font-size: 125%;
+	font-family: 'Air Americana', Futura, sans-serif;
+	src:url('air-americana/Air Americana.ttf');
+
+}
+
+html {
+   background: url("../images/8bitseattle.png") no-repeat center center fixed;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: auto;
+}

@@ -7,23 +7,38 @@
       div#memory_board{
         background:#ccc;
         border: #999 1px solid;
-        width:540px;
-        height: 540px;
+        width: 600px;
+        height: 580px;
         padding:24px;
         margin: 0px auto;
       }
 
       div#memory_board > div {
-        background: url("caseyLogo.png") no-repeat;
+        background: url("images/memoryGameCard.png") no-repeat;
+        background-size: 140px 140px;
         border:#000;
-        width:71px;
-        height: 71px;
+        width: 100px;
+        height: 100px;
         float: left;
-        margin: 10px;
+        margin: 5px;
         padding: 20px;
-        font-size: 64px;
         cursor:pointer;
         text-align: center;
+      }
+      .menu{
+        width: 100%;
+      }
+
+      #left{
+        float:left;
+      }
+
+      #right{
+        float:right;
+      }
+      img{
+        height: 100px;
+        width: 100px;
       }
       </style>
 </head>
@@ -31,13 +46,73 @@
 <body>
   <div id="main">
   </div>
+  <div class = "menu">
+    <div id="left">
+      <a href="index.html">Menu</a>
+    </div>
+    <div id="right">
+      <a id="resetId">Reset Game</a>
+    </div>
+  </div>
+  
   <div id ="memory_board"></div>
+
+<script src="script/sectionone.js"></script>
 <script>
-  var memory_array = ["A", "A", "B", "B", "C","C","D", "D", "E", "E", "F", "F", "G", "G", "H", "H"];
+  var memory_array = [];
   var memory_values = [];
   var memory_tile_ids = [];
   var tiles_flipped = 0;
 
+  // Import random set of four cards
+  cardSet1 = getCard(Math.floor((Math.random() * 10) + 1));
+                
+  cardSet2 = getCard(Math.floor((Math.random() * 10) + 1));
+  
+  while(cardSet1 == cardSet2){
+    cardSet2 = getCard(Math.floor((Math.random() * 10) + 1));
+  }
+            
+  cardSet3 = getCard(Math.floor((Math.random() * 10) + 1));
+ 
+  while(cardSet3 == cardSet2 || cardSet3 == cardSet1){
+      cardSet3 = getCard(Math.floor((Math.random() * 10) + 1));
+  }
+  
+  cardSet4 = getCard(Math.floor((Math.random() * 10) + 1));
+  
+  while(cardSet4 == cardSet2 || cardSet4 == cardSet1 || cardSet4 == cardSet3){
+      cardSet4 = getCard(Math.floor((Math.random() * 10) + 1));
+  }
+
+
+  memory_array.push(cardSet1.image);
+  memory_array.push(cardSet1.image);
+  
+  memory_array.push(cardSet2.image);
+  memory_array.push(cardSet2.image);
+
+  
+  memory_array.push(cardSet3.image);
+  memory_array.push(cardSet3.image);
+  
+  memory_array.push(cardSet4.image);
+  memory_array.push(cardSet4.image);
+
+  memory_array.push(cardSet1.image);
+  memory_array.push(cardSet1.image);
+  
+  memory_array.push(cardSet2.image);
+  memory_array.push(cardSet2.image);
+
+  
+  memory_array.push(cardSet3.image);
+  memory_array.push(cardSet3.image);
+  
+  memory_array.push(cardSet4.image);
+  memory_array.push(cardSet4.image);
+
+  
   Array.prototype.memory_tile_shuffle = function(){
     var i = this.length, j, temp;
     while (--i > 0){
@@ -61,7 +136,7 @@
   function memoryFlipTile(tile,val){
   if(tile.innerHTML == "" && memory_values.length < 2){
     tile.style.background = '#FFF';
-    tile.innerHTML = val;
+    tile.innerHTML = '<img src= "' +val+ '">';
     if(memory_values.length == 0){
       memory_values.push(val);
       memory_tile_ids.push(tile.id);
@@ -75,7 +150,7 @@
               memory_tile_ids = [];
         // Check to see if the whole board is cleared
         if(tiles_flipped == memory_array.length){
-          alert("Board cleared... generating new board");
+          alert("Congratulations!");
           document.getElementById('memory_board').innerHTML = "";
           newBoard();
         }
@@ -84,9 +159,11 @@
             // Flip the 2 tiles back over
             var tile_1 = document.getElementById(memory_tile_ids[0]);
             var tile_2 = document.getElementById(memory_tile_ids[1]);
-            tile_1.style.background = 'url(caseyLogo.png) no-repeat';
+            tile_1.style.background = 'url(images/memoryGameCard.png) no-repeat';
+            tile_1.style.backgroundSize = '140px 140px';
                   tile_1.innerHTML = "";
-            tile_2.style.background = 'url(caseyLogo.png) no-repeat';
+            tile_2.style.background = 'url(images/memoryGameCard.png) no-repeat';
+            tile_2.style.backgroundSize = '140px 140px';
                   tile_2.innerHTML = "";
             // Clear both arrays
             memory_values = [];

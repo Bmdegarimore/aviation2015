@@ -1,31 +1,24 @@
-/* Sectionone.js
- * This script is a container for the cards contained in section
- * one. It also has a function to pull the cards. 
- * Author: Corey Johnson
- * Version: 1.0
- */
-
 var card1 = {
 	id: "card1",
-	word: "International Civil Aviation Organization (ICAO)",
-	audio: "section1/audio/internationalCivilAviationOrganization.mp3",
-	image: "section1/images/term1.jpg",
-	description: "The ICAO is responsible for global aviation."
+	word: "Atmosphere",
+	audio: "section8/audio/",
+	image: "section8/images/term1.jpg",
+	description: "Sentence needed"
 };
 
 var card2 = {
 	id: "card2",
-	word: "Federal Aviation Administration (FAA)",
-	audio: "section1/audio/federalAviationAdministration.mp3",
-	image: "section1/images/term2.jpg",
-	description: "The FAA works hard to maintain safety standards!"
+	word: "International Standard Atmosphere",
+	audio: "section8/audio/",
+	image: "section8/images/term2.jpg",
+	description: "Sentence needed"
 };
 
 var card3 = {
 	id: "card3",
-	word: "License",
-	audio: "section1/audio/license.mp3",
-	image: "section1/images/term3.jpg",
+	word: "Troposhere",
+	audio: "section8/audio/",
+	image: "section8/images/term3.jpg",
 	description: "You need a license to fly!"
 };
 

@@ -1,10 +1,3 @@
-/* Sectionone.js
- * This script is a container for the cards contained in section
- * one. It also has a function to pull the cards. 
- * Author: Corey Johnson
- * Version: 1.0
- */
-
 var card1 = {
 	id: "card1",
 	word: "International Civil Aviation Organization (ICAO)",

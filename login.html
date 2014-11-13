@@ -14,7 +14,7 @@
 		</div>
 		<div id="login-box" class="login-popup">
 		<a href="login.html" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-  		<form method="post" class="signin" action="#">
+  		<form method="post" class="signin" action="index.html">
         <fieldset class="textbox">
         <label class="username">
         <span>Username or email</span>
@@ -24,19 +24,18 @@
         <span>Password</span>
         <input id="password" name="password" value="" type="password" placeholder="Password">
         </label>
-        <button class="submit button" type="button">Sign in</button>
+        <button class="submit button">Sign in</button>
         <p>
-        <a class="forgot" href="#">Forgot your password?</a>
+        <a class="forgot" href="index.html">Forgot your password?</a>
         </p>        
         </fieldset>
   </form>
 </div>
 
 		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="script/cardManager.js"></script>
 		<script>
 			$(document).ready(function() {
-$('a.login-window').click(function() {
+        $('a.login-window').click(function() {
     
             //Getting the variable's value from a link 
     var loginBox = $(this).attr('href');

@@ -5,13 +5,12 @@ body{
     min-width: 50%;
     margin: 0;
     font-size: 125%;
-    font-family: 'Air Americana', Futura, sans-serif;
-    src:url('air-americana/Air Americana.ttf');
+    font-family: Georgia,sans-serif;
 
 }
 
 html {
-   background: url("../images/8bitseattle.png") no-repeat center center fixed;
+    background: #333;
    -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -21,7 +20,8 @@ html {
 #loginbutton{
     text-align: center;
     width: 100%;
-    height: 100%;
+    position: fixed;
+    top: 50%;
 }
 
 /* Mask for background, by default is not display */

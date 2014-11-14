@@ -61,7 +61,7 @@
         
         if(question > 3){
             alert("You got " + correct + " of 3 correct");
-            window.location = "quizResult.html";
+            window.location = "quizResult.php";
 
         }
         else

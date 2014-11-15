@@ -1,7 +1,9 @@
 (function(){
     var question = 1; // Amount of questions to ask
     var correct = 0; // Number of correct
+    var total = 3; // Total amount of questions
     var correctNum = null;
+
 
     var time; // Timer variable to set and clear function
     var timerOn = 0;
@@ -65,8 +67,9 @@
         var anscard5 = null;
         
         if(question > 3){
+
             alert("You got " + correct + " of 3 correct");
-            window.location = "quizResult.php";
+            window.location = "quizResult.php?var1=" + correct;
 
         }
         else

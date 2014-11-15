@@ -7,9 +7,10 @@
   $('#expList').find('li:has(ul)')
     .click( function(event) {
       if (this == event.target) {
-        $(".clickHide").hide();
+        $(".clickHide").toggle();
         $(this).toggleClass('expanded');
         $(this).children('ul').toggle('medium');
+        $(this).children('ul').css("font-size", ".5em");
       }
       return false;
     })
@@ -50,6 +51,12 @@ body{
   margin-top: 2em;
 }
  
+#expList{
+  margin:0em 5%;
+}
+ul{
+  font-size: 2em;
+}
 #expList ul, li {
     list-style: none;
     margin:0;
@@ -59,14 +66,13 @@ body{
 
 #expList li {
     line-height:100%;
-    text-indent:0px;
-    
+ 
     
 }
  
 /* Collapsed state for list element */
 #expList .collapsed {
-    background-color: #FFFFFF;
+    background-color: green;
 }
 /* Expanded state for list element
 /* NOTE: This class must be located UNDER the collapsed one */
@@ -93,23 +99,29 @@ body{
 
 .right{
   float:right;
-  width: 25%;
-  height: 30%;
+  width: 45%;
+  height: 25%;
   text-align: center;
   margin: 0% auto;
+  margin-bottom: 5%;
   border: solid;
-  background-color: green;
+  background-color: white;
 }
 
 .inline{
   float: left;
   display: inline;
+  margin: 1%;
+
+  width: 30%;
+  height: 30%;
   
 }
 
-img{
-  width: 25%;
-  height: 25%;
+.clickHide, h2{
+ font-family: verdana;
+ font-size: 1em;
+  
 }
 
 
@@ -128,31 +140,31 @@ img{
       </li>  
     </div>
     <div class="right">
-      <li>Section 2
+      <li>Section 2 <br><span class="clickHide">Click Here!</span>
         <ul>
-          <li>Item B.1</li>
-          <li>Item B.2</li>
-          <li>Item B.3</li>
+          <li class ="inline"><a id="two" href="sectiontwo.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
         </ul>
-      </li>
+      </li> 
     </div>
   </div>
   <div class="boxDesign">
     <div class="left">
-      <li>Section 3
+      <li>Section 3 <br><span class="clickHide">Click Here!</span>
         <ul>
-          <li>Item C.1</li>
-          <li>Item C.2</li>
-          <li>Item c.3</li>
+          <li class ="inline"><a id="three" href="sectionthree.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
         </ul>
       </li>
     </div>
     <div class ="right">
-      <li>Section 4
+      <li>Section 4 <br><span class="clickHide">Click Here!</span>
         <ul>
-          <li>Item C.1</li>
-          <li>Item C.2</li>
-          <li>Item C.3</li>
+          <li class ="inline"><a id="four" href="sectionfour.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
         </ul>
       </li>
     </div>

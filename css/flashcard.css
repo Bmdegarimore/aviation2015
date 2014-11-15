@@ -37,6 +37,7 @@ p{
 #audioIcon{
 	width: 10%;
 	height: 10%;
+	position: static;
 }
 
 

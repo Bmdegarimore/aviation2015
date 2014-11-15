@@ -13,11 +13,13 @@
         background-color: #2ecc71;
       }
 
-      
-
       .buttons{
         margin:0em auto;
         width: 15%;
+      }
+
+      .buttons:hover{
+          opacity: 0.7;
       }
 
       div#memory_board{
@@ -67,7 +69,7 @@
       <a href="index.html" class="buttons"><img src="images/menu.png" alt="menu"></a>
     </div>
     <div id="right">
-      <a id="resetId" class="buttons"><img src="images/reset.png" alt="reset game"></a>
+      <a id="resetId" class="buttons" onClick="newBoard()"><img src="images/reset.png" alt="reset game"></a>
     </div>
   </div>
   

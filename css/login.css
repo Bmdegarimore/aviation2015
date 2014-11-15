@@ -10,18 +10,34 @@ body{
 }
 
 html {
-    background: #333;
+     background: url("../images/cockpit.jpg") no-repeat center center fixed;
    -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: auto;
 }
+#loginbox{
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    left: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid green;
+    position: fixed;
+    background: white;
+}
 #loginbutton{
     text-align: center;
-    width: 100%;
     position: fixed;
+    height: 100%;
+    width: 50%;
     top: 50%;
+    left: 25%;
+    margin-right: auto;
+    margin-left: auto;
+    margin: auto;
 }
 
 /* Mask for background, by default is not display */

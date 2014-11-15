@@ -35,11 +35,15 @@ body{
 }
 
 .image_border{
-	border: solid #828d8f;
+	border: solid #c3c2c2;
 	width: 54%;
 	height: 350px;
 	margin: 0% auto;
 	
+}
+
+.image_border:hover{
+	border: solid #828d8f;
 }
 
 

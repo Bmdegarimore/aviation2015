@@ -8,6 +8,11 @@
     var changeCounter = 30;
     var counter = 0;
 
+    // Plays audio when click image
+    function playAudio(){
+        document.getElementById("audioPlay").load();
+        document.getElementById("audioPlay").play();
+    }
 
     // Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
     function checkShapeDrop(e, correctInt) { 
@@ -118,6 +123,7 @@
             $("#answer5").text(arrayAns[4].word);
 
             $("#image").attr("src", arrayAns[(correctNum -1)].image);
+            $("#audioPlay").attr("src", arrayAns[(correctNum -1)].audio);
             
             startCount(); // Start count down based on global counter variable.
        }      
@@ -129,7 +135,7 @@
     document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
     document.getElementById("answer5").addEventListener("dragstart", startShapeDrag, false);
     document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event, correctNum)}, false);
-
+    document.getElementById("image").addEventListener("click", playAudio, false);
    document.addEventListener("DOMContentLoaded", initialize, false);
    
    

@@ -1,93 +1,176 @@
 <!DOCTYPE html>
-
 <html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  function prepareList() {
+  $('#expList').find('li:has(ul)')
+    .click( function(event) {
+      if (this == event.target) {
+        $(".clickHide").toggle();
+        $(this).toggleClass('expanded');
+        $(this).children('ul').toggle('medium');
+        $(this).children('ul').css("font-size", ".5em");
+      }
+      event.stopPropagation();
+    })
+    .addClass('collapsed')
+    .children('ul').hide();
+  };
+ 
+  $(document).ready( function() {
+      prepareList();
+  });
 
-	<head>
-		<title>Aviation homepage</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-	</head>
+</script>
+<style> 
+html {
+  /*background-image: linear-gradient(green, #2ecc71);*/
+   background-color: #2ecc71;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: auto;
+
+}
+
+body{
+  width:100%;
+  height: auto;
+  min-height: 50%;
+  min-width: 50%;
+  margin: 0;
+  font-size: 140%;
+   background-color: #2ecc71;
+    position: relative;
+  text-align:center;
+}
+
+#listContainer{
+  margin-top: 2em;
+}
+ 
+#expList{
+  margin:0em 5%;
+}
+ul{
+  font-size: 2em;
+}
+#expList ul, li {
+    list-style: none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+}
+
+#expList li {
+    line-height:100%;
+ 
+    
+}
+ 
+/* Collapsed state for list element */
+#expList .collapsed {
+    background-color: green;
+}
+/* Expanded state for list element
+/* NOTE: This class must be located UNDER the collapsed one */
+#expList .expanded {
+    background-color: white;
+}
+
+.boxDesign{
+  width: 100%;
+  float: left;
+
+}
+
+.left{
+  float:left;
+  width: 45%;
+  height: 25%;
+  text-align: center;
+  margin: 0% auto;
+  margin-bottom: 5%;
+  border: solid;
+  background-color: white;
+}
+
+.right{
+  float:right;
+  width: 45%;
+  height: 25%;
+  text-align: center;
+  margin: 0% auto;
+  margin-bottom: 5%;
+  border: solid;
+  background-color: white;
+}
+
+.inline{
+  float: left;
+  display: inline;
+  margin: 1%;
+
+  width: 30%;
+  height: 30%;
+  
+}
+
+.clickHide, h2{
+ font-family: verdana;
+ font-size: 1em;
+  
+}
 
 
-	<body>
-		<h1>Aviation Vocabulary</h1>
-					<div class="cards">Section 1
-					<br>
-					<a id="one" class="flashcards"><img src="images/flashcard.png"></a> 
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
+</style>
+<h1>Aviation</h1>
+<div id="listContainer">
+  <ul id="expList">
+    <div class="boxDesign">
+      <div class="left">
+      <li>Section 1 <br><span class="clickHide">Click Here!</span>
+        <ul>
+          <li class ="inline"><a id="one" href="sectionone.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
+        </ul>
+      </li>  
+    </div>
+    <div class="right">
+      <li>Section 2 <br><span class="clickHide">Click Here!</span>
+        <ul>
+          <li class ="inline"><a id="two" href="sectiontwo.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
+        </ul>
+      </li> 
+    </div>
+  </div>
+  <div class="boxDesign">
+    <div class="left">
+      <li>Section 3 <br><span class="clickHide">Click Here!</span>
+        <ul>
+          <li class ="inline"><a id="three" href="sectionthree.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
+        </ul>
+      </li>
+    </div>
+    <div class ="right">
+      <li>Section 4 <br><span class="clickHide">Click Here!</span>
+        <ul>
+          <li class ="inline"><a id="four" href="sectionfour.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
+          <li class ="inline"><a href="memoryGame.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
+          <li class = "inline"><a href="quiz.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
+        </ul>
+      </li>
+    </div>
+  </div>
+  </ul>
+</div>
 
-				
-					<div class="cards">Section 2
-					<br>
-					<a id="two" class="flashcards"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-				
-				
-					<div class="cards">Section 3
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-				
-					<div class="cards">Section 4
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-			
-				
-					<div class="cards">Section 5
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-			
-				
-					<div class="cards">Section 6
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-			
-				
-					<div class="cards">Section 7
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-				
-			
-				
-					<div class="cards">Section 8
-					<br>
-					<a href="sectionTemplate.html"><img src="images/flashcard.png"></a>
-					<a href="memoryGame.html"><img src="images/memoryGame.png"><a>
-					<a href="quiz.html"><img src="images/quiz.png"></a>
-					</div>
-			</div>
-			
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="script/cardManager.js"></script>
-		<script>
-			$("a.flashcards").click(function(){
-				var id = ($(this).attr('id'));
-				$(this).attr('href',"section" + id + ".html");
-			});
-		</script>
-
-	</body>
-
+</body>
 </html>

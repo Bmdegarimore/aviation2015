@@ -66,9 +66,9 @@
         var anscard4 = null;
         var anscard5 = null;
         
-        if(question > 3){
+        // Once questions answered then result page loads.
+        if(question > total){
 
-            alert("You got " + correct + " of 3 correct");
             window.location = "quizResult.php?var1=" + correct;
 
         }
@@ -100,7 +100,9 @@
 
             var arrayAns = [anscard1, anscard2, anscard3, anscard4, anscard5];
             
-            
+            //Counter that displays the question user is on
+            document.getElementById("questionNum").innerHTML = "Question " + question + " of " + total;
+
             // Pick answer
             correctNum = Math.floor((Math.random() * 5) + 1);
 

@@ -13,7 +13,16 @@ body{
 	/*margin-top: 2%;*/
 	height: 100%;
 }
+
+a, h1, h2{
+	width: 100;
+	text-align: center;
+}
+
 #resultWrapper{
-	width: 100%;
+	background-color: #2b3c4e;
+	border: solid #828d8f;
+	width: 60%;
+	height: 80%;
 	margin: 0% auto;
 }

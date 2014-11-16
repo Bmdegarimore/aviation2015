@@ -1,0 +1,54 @@
+html { 
+        background: url("images/background.png") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: #2ecc71;
+      }
+
+      .buttons{
+        margin:0em auto;
+        width: 15%;
+      }
+
+      .buttons:hover{
+          opacity: 0.7;
+      }
+
+      div#memory_board{
+        background:#ccc;
+        border: #999 1px solid;
+        width: 600px;
+        height: 580px;
+        padding:24px;
+        margin: 0px auto;
+      }
+
+      div#memory_board > div {
+        background: url("../images/memoryGameCard.png") no-repeat;
+        background-size: 140px 140px;
+        border:#000;
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 5px;
+        padding: 20px;
+        cursor:pointer;
+        text-align: center;
+      }
+      .menu{
+        width: 100%;
+      }
+
+      #left{
+        float:left;
+      }
+
+      #right{
+        float:right;
+      }
+      img{
+        height: 100px;
+        width: 100px;
+      }

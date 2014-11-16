@@ -104,31 +104,31 @@
   }
 
 
-  memory_array.push(cardSet1.image);
-  memory_array.push(cardSet1.image);
+  memory_array.push(cardSet1);
+  memory_array.push(cardSet1);
   
-  memory_array.push(cardSet2.image);
-  memory_array.push(cardSet2.image);
+  memory_array.push(cardSet2);
+  memory_array.push(cardSet2);
 
   
-  memory_array.push(cardSet3.image);
-  memory_array.push(cardSet3.image);
+  memory_array.push(cardSet3);
+  memory_array.push(cardSet3);
   
-  memory_array.push(cardSet4.image);
-  memory_array.push(cardSet4.image);
+  memory_array.push(cardSet4);
+  memory_array.push(cardSet4);
 
-  memory_array.push(cardSet1.image);
-  memory_array.push(cardSet1.image);
+  memory_array.push(cardSet1);
+  memory_array.push(cardSet1);
   
-  memory_array.push(cardSet2.image);
-  memory_array.push(cardSet2.image);
+  memory_array.push(cardSet2);
+  memory_array.push(cardSet2);
 
   
-  memory_array.push(cardSet3.image);
-  memory_array.push(cardSet3.image);
+  memory_array.push(cardSet3);
+  memory_array.push(cardSet3);
   
-  memory_array.push(cardSet4.image);
-  memory_array.push(cardSet4.image);
+  memory_array.push(cardSet4);
+  memory_array.push(cardSet4);
 
   
   Array.prototype.memory_tile_shuffle = function(){
@@ -146,15 +146,15 @@
     var output = "";
     memory_array.memory_tile_shuffle();
     for (var i = 0; i < memory_array.length; i++){
-      output += '<div id = "title_' +i+ '" onClick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+      output += '<div id = "title_' +i+ '" onClick="memoryFlipTile(this,\''+memory_array[i].image+'\', \''+memory_array[i].audio+'\')"></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
   }
 
-  function memoryFlipTile(tile,val){
+  function memoryFlipTile(tile, val, audio){
   if(tile.innerHTML == "" && memory_values.length < 2){
     tile.style.background = '#FFF';
-    tile.innerHTML = '<img src= "' +val+ '">';
+    tile.innerHTML = '<img src= "' +val+ '"><audio id="audioPlay" src= "' +audio+'" autoplay></audio>';
     if(memory_values.length == 0){
       memory_values.push(val);
       memory_tile_ids.push(tile.id);

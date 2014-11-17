@@ -6,7 +6,7 @@
 			body {
 				text-align: center;
 				background-color: #2ecc71;
-				 background: url("images/8bitsky.png") no-repeat center center fixed;
+				 background: url("images/background.png") no-repeat center center fixed;
 			}
 
 			img {
@@ -48,10 +48,26 @@
 				background-color: red;
 				border: solid;
 			}
+
+			.side
+			{	
+				float: left;
+			}
+
+			#menu{
+        		height: 100px;
+        		width: 100px;
+        		position: absolute;
+      		}
 		</style>
 	</head>
 
 	<body onload="onStart()">
+		<div id="left" class="side">
+      		<a href="main.html" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+    	</div>
+
+
 		<div id = 'wrapper'>
 			<h1>Memory Game Tutorial</h1>
 

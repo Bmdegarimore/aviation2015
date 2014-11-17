@@ -22,7 +22,12 @@
 			echo "<h2>Your score was " . $score . " out of " . $total . ".</h2>";
 			?>
 			<br>
-			<input type="submit" href="main.html" id="submit" value="Save and Return to Main Menu">
+			<input type="submit" id="submit" onClick="launch();" value="Save and Return to Main Menu">
+			<script>
+				function launch(){
+					window.location = "main.html";
+				}
+			</script>
 		</div>
 	</body>
 </html>

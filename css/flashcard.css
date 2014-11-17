@@ -40,12 +40,10 @@ p{
 	position: static;
 }
 
-
-
 #content{
 	background-color: #ecf0f1;
 	margin:0em auto;
-	margin-top: 5%;
+	margin-top: 0%;
 	width: 75%;
 	height: 25%;
 	text-align: center;
@@ -53,7 +51,6 @@ p{
 	border: 8px solid #828d8f;
 	margin-bottom: 5%;
 }
-
 
 .imageBorder{
 	min-height: 400px;

@@ -90,7 +90,8 @@
             }
 
             var arrayAns = [anscard1, anscard2, anscard3, anscard4];
-            
+
+
             // Pick answer
             correctNum = Math.floor((Math.random() * 4) + 1);
 
@@ -100,13 +101,21 @@
 
                 prevCorrect = correctNum;
             }
-            else{
+            else if(question == 2){
 
                 while (correctNum == prevCorrect){
                     correctNum = Math.floor((Math.random() * 4) + 1);
                 }
-               prevCorrect = correctNum; 
+                secondCorrect = correctNum; 
             }
+            else if (question == 3){
+
+                 while (correctNum == prevCorrect || correctNum == secondCorrect){
+                    correctNum = Math.floor((Math.random() * 4) + 1);
+                }
+            }
+
+            
 
             //Initialize quetion based on answer
             $("#answer1").text(arrayAns[0].word);

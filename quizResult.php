@@ -19,10 +19,10 @@
 				echo "<h2>Please take sometime to practice this section again.</h2>";
 			}
 
-			echo "<h2>Score " . $score . " out of " . $total . "</h2>";
+			echo "<h2>Your score was " . $score . " out of " . $total . ".</h2>";
 			?>
 			<br>
-			<a href="index.html">Back to Main Page</a> 
+			<input type="submit" href="main.html" id="submit" value="Save and Return to Main Menu">
 		</div>
 	</body>
 </html>

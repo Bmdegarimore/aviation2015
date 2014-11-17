@@ -43,7 +43,7 @@ html {
 /* Mask for background, by default is not display */
 #mask {
     display: none;
-    background: #000;
+    background: #1bbc9b;
     position: fixed;
     left: 0;
     top: 0;
@@ -57,7 +57,7 @@ html {
 /* You can customize to your needs  */
 .login-popup {
     display: none;
-    background: #333;
+    background: #828d8f;
     padding: 10px;
     border: 2px solid #ddd;
     float: left;

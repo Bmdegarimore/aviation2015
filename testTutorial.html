@@ -8,7 +8,7 @@
 				background-color: #2ecc71;
 			}
 
-			#tutorial1 {
+			img {
 				width: 50%;
 				height: 50%;
 			}
@@ -33,8 +33,9 @@
 			}
 
 			button {
+				font-size: 2em;
 				margin-bottom: 5%;
-				padding-bottom: 5px;
+				padding: 30px;
 			}
 
 			.correct{
@@ -58,7 +59,7 @@
 
 			<h2>Questions</h2>
 			<p>You will see an image and hear a word. If you do not hear anything, please check your volume! <br>
-				You must match the term from the right side with the term you heard. If you need the audio to play again, click the image!
+				You must match the term from the right side with the term you heard. Click the image to play the sound!
 			</p>
 
 			<br>
@@ -70,70 +71,21 @@
 			<hr>
 
 			<h2>Answering Questions</h2>
-			<p>To answer a question, click and drag the term to the answer box. Try below!</p>
+			<p>To answer a question, click the term then click "Submit".</p>
+
+			<img id='tutorial2' src="images/testTutorialCapture2.png">
 
 			<br>
-
-			<div class="left">
-				<div id="box_input" ondragover="return false;" ondrop="checkShapeDrop(event);" draggable="false">Please Place answer here</div>
-			</div>
-
-			<p id='result'></p>
-
 			<br>
-			
-			<div class="right">
-				<div id="choices">
-						<h3 id="answer2" class='choice' draggable="true">False</h3>
-						<h3 id="answer3" class='choice' draggable="true">True</h3>
-						<h3 id="answer4" class='choice' draggable="true">False</h3>
-				</div>
-			</div>
 
 			<hr>
 
 			<h2>Summary</h2>
-			<p>Each question is timed. You can see how much time is left in the top right. Once you have finished the test, you will be brought back to the main page. Good luck!</p>
+			<p>Once you have finished the test, you will be brought back to the main page. Good luck!</p>
 
 			<br>
 
 			<a href="quiz.html"><button>Take the test!</button></a>
 		</div>
-
-		<script type="http://code.jquery.com/jquery.js"></script>
-		<script>
-			function onStart(){
-				document.getElementById("answer2").addEventListener("dragstart", startShapeDrag, false);
-	    		document.getElementById("answer3").addEventListener("dragstart", startShapeDrag, false);
-	   			document.getElementById("answer4").addEventListener("dragstart", startShapeDrag, false);
-
-	   			document.getElementById("box_input").addEventListener("drop", function(){checkShapeDrop(event)}, false);
-	   			document.addEventListener("DOMContentLoaded", false);
-
-			}
-
-			function checkShapeDrop(e){
-				var element = e.dataTransfer.getData('text');
-
-        		// Prevents default code for drop to execute
-        		e.preventDefault();
-      
-          
-	        	// if we have a match, replace replace the background color of
-	        	if (element == ("answer3")) {
-	            	document.getElementById("box_input").className = "correct";
-	            	document.getElementById("result").innerHTML = "<p id='result'>Correct!</p>";
-	        	} 
-		        else { 
-		            //not a match turns red
-		            document.getElementById("box_input").className = "incorrect";
-		            document.getElementById("result").innerHTML = "<p id='result'>Incorrect, please select true!</p>"
-		        } 
-			}
-
-			function startShapeDrag(e) {
-        		e.dataTransfer.setData('text', this.id);
-    		}
-		</script>
 	</body>
 </html>

@@ -10,18 +10,18 @@ body{
 }
 
 html {
-     background: url("../images/8bitseattle.png") no-repeat center center fixed;
-   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: auto;
+    background: url("../images/8bitseattle.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
 }
 #loginbox{
-    height: 50%;
-    width: 50%;
-    top: 25%;
-    left: 25%;
+    height: 25%;
+    width: 25%;
+    top: 38%;
+    left: 38%;
     margin-right: auto;
     margin-left: auto;
     border: 2px solid green;

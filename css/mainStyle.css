@@ -16,8 +16,9 @@
         min-height: 50%;
         min-width: 50%;
         margin: 0;
+        margin-top: -2%;
         font-size: 140%;
-        background-color: #2ecc71;
+        background-color: #73e0ff;
         position: relative;
         text-align:center;
       }

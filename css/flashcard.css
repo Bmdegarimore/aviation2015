@@ -73,5 +73,10 @@ p{
 .menu
 {
 	float: left;
+}
 
+#menu{
+    height: 100px;
+    width: 100px;
+    position: absolute;
 }

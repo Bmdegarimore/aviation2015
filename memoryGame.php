@@ -36,6 +36,45 @@
       catch (PDOException $e) {
         echo $e->getMessage();
       }
+
+      //pull the card section
+      $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM cards WHERE secid = 1");
+      $STM->execute();
+      $STMrecords = $STM->fetchAll();
+      foreach ($STMrecords as $row) {
+         print $row;
+      }
+
+      /*
+      //create the card script
+      print "<script>";
+        //Initialize a counting variable to incremement card id's
+        $idIncrementer = 1;
+
+        //Loop through the STMrecords to grab each row of data
+        foreach($STMrecords as $row){
+          //initialize a struct
+          print "var card$idIncrementer = { id: card$idIncrementer, word: $row[0], img: $row[1], audio: $row[2], description: $row[3]}; ";
+          $idIncrementer++;
+        }
+
+        //Create the array 
+        print "var card = [";
+        for ($counter = 1; $counter < $idIncrementer; $counter++){
+          //add a card to the array
+          print "card$counter, ";
+        }
+
+        print "]; ";
+
+        //Get card array size
+        print "var cardSize = card.length-1; ";
+
+        //make getter functions
+        print "function getCards() { return card; }  function getCard(index) { return card[index-1]; }";
+
+      print "</script>"; */
+
   ?>
 
 

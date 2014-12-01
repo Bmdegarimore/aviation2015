@@ -31,30 +31,26 @@
       try {
         $dbh = new PDO("mysql:host=$hostname;
                        dbname=caseym_Aviation", $username, $password);
-        echo "Connected to database.";
+        //echo "Connected to database.";
       } 
       catch (PDOException $e) {
         echo $e->getMessage();
       }
 
       //pull the card section
-      $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM cards WHERE secid = 1");
+      $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = 1");
       $STM->execute();
       $STMrecords = $STM->fetchAll();
-      foreach ($STMrecords as $row) {
-         print $row;
-      }
 
-      /*
       //create the card script
-      print "<script>";
+      print "<script type='text/javascript'>\n";
         //Initialize a counting variable to incremement card id's
         $idIncrementer = 1;
 
         //Loop through the STMrecords to grab each row of data
         foreach($STMrecords as $row){
           //initialize a struct
-          print "var card$idIncrementer = { id: card$idIncrementer, word: $row[0], img: $row[1], audio: $row[2], description: $row[3]}; ";
+          print "var card$idIncrementer = { \nid: \"card$idIncrementer\", \nword: \"$row[0]\", \nimg: \"$row[1]\", \naudio: \"$row[2]\", \ndescription: \"$row[3]\"\n}; \n";
           $idIncrementer++;
         }
 
@@ -62,18 +58,24 @@
         print "var card = [";
         for ($counter = 1; $counter < $idIncrementer; $counter++){
           //add a card to the array
-          print "card$counter, ";
+          if ($counter == 1){
+            print "card$counter";
+          }
+          else {
+            print ", card$counter";
+          }
+          
         }
 
-        print "]; ";
+        print "]; \n";
 
         //Get card array size
-        print "var cardSize = card.length-1; ";
+        print "var cardSize = card.length - 1; \n";
 
         //make getter functions
-        print "function getCards() { return card; }  function getCard(index) { return card[index-1]; }";
+        print "function getCards(){\nreturn card;\n} \nfunction getCard(index){\nreturn card[index-1];\n}\n";
 
-      print "</script>"; */
+      print "</script>";
 
   ?>
 

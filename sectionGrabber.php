@@ -13,10 +13,10 @@
 
   //pull the card section default to 1? 
   $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = 1");
-  //Test statement to grab the _POST section
-  if(isset($_POST['sectionid'])){
+  //Test statement to grab the _GET section
+  if(isset($_GET['sectionid'])){
     //sectionid is passed from the index to the post array
-    $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = $_POST['sectionid']");
+    $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = $_GET['sectionid']");
   }
   $STM->execute();
   $STMrecords = $STM->fetchAll();

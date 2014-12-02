@@ -28,35 +28,41 @@
           }
 
           //pull the card section default to 1? 
-          $STM = $dbh->prepare("SELECT count(*) FROM Cards WHERE secid = 1");
+          $STM = $dbh->prepare("SELECT count(*) FROM Section");
           //Test statement to grab the _POST section
           if(isset($_POST['sectionid'])){
             //sectionid is passed from the index to the post array
-            $STM = $dbh->prepare("SELECT count(*) FROM Cards WHERE secid = $_POST['sectionid']");
+            $STM = $dbh->prepare("SELECT count(*) FROM Section");
           }
           $STM->execute();
           $STMrecords = $STM->fetchAll();
 
-          <div class="boxDesign">
-            <div class="left">
-              <li>Section 1 <br><span class='smaller'>Click Here!</span>
+          $sectionIncrementer = 1;
+          while($sectionIncrementer < $STMrecords[0]){
+            if($sectionIncrementer%2 == 1){
+              print "<div class='boxDesign'>";
+              print "<div class=\"left\">
+                <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
+                  <ul>
+                    <li class =\"inline\"><a id=\"one\" href=\"sectionone.html\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
+                    <li class =\"inline\"><a href=\"memoryGameTutorial.html\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
+                    <li class = \"inline\"><a href=\"quizTutorial.html\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
+                  </ul>
+                </li>  
+              </div>"
+            }
+            else {
+              print "<div class=\"right\">
+              <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
                 <ul>
-                  <li class ="inline"><a id="one" href="sectionone.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
-                  <li class ="inline"><a href="memoryGameTutorial.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
-                  <li class = "inline"><a href="quizTutorial.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
-                </ul>
-              </li>  
-            </div> //Left End
-            <div class="right">
-              <li>Section 2 <br><span class='smaller'>Click Here!</span>
-                <ul>
-                  <li class ="inline"><a id="two" href="sectiontwo.html"><img src="images/flashcard.png"><h2>Flash Cards</h2></a></li> 
-                  <li class ="inline"><a href="memoryGameTutorial.html"><img src="images/memoryGame.png"><h2>Memory Game</h2></a></li>
-                  <li class = "inline"><a href="quizTutorial.html"><img src="images/quiz.png"><h2>Quiz</h2></a></li>
+                  <li class =\"inline\"><a id=\"two\" href=\"sectiontwo.html\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
+                  <li class =\"inline\"><a href=\"memoryGameTutorial.html\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
+                  <li class = \"inline\"><a href=\"quizTutorial.html\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
                 </ul>
               </li> 
-            </div> //Right End
-          </div> //BoxDesign end
+              </div></div>";
+            }
+          }
         //listContainer and expList closing
         print "</ul></div>";
 

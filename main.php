@@ -30,15 +30,10 @@
           //pull the card section default to 1? 
           $STM = $dbh->prepare("SELECT count(*) FROM Section");
           //Test statement to grab the _POST section
-          if(isset($_POST['sectionid'])){
-            //sectionid is passed from the index to the post array
-            $STM = $dbh->prepare("SELECT count(*) FROM Section");
-          }
           $STM->execute();
-          $STMrecords = $STM->fetchAll();
-
+          $STMrecords = $STM->fetch();
           $sectionIncrementer = 1;
-          while($sectionIncrementer < $STMrecords[0]){
+          while($sectionIncrementer <= $STMrecords[0]){
             if($sectionIncrementer%2 == 1){
               print "<div class='boxDesign'>";
               print "<div class=\"left\">
@@ -49,7 +44,7 @@
                     <li class = \"inline\"><a href=\"quizTutorial.html\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
                   </ul>
                 </li>  
-              </div>"
+              </div>";
             }
             else {
               print "<div class=\"right\">
@@ -62,6 +57,7 @@
               </li> 
               </div></div>";
             }
+            $sectionIncrementer++;
           }
         //listContainer and expList closing
         print "</ul></div>";

@@ -1,42 +1,42 @@
 <?php
+// Start Session
+session_start();
+
+// Start the buffer
+ob_start();
 
 ini_set('display_errors',1); 
  error_reporting(E_ALL);
 
-ob_start();
-$host="localhost"; // Host name
-$username=""; // Mysql username
-$password=""; // Mysql password
-$db_name=""; // Database name
-$tbl_name=""; // Table name
+//Database
+require "db.php";
 
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
+try {
+	$dbh = new PDO("mysql:host=$hostname;
+					dbname=caseym_Aviation", $username, $password);
+} catch (PDOException $e){
+	echo $e->getMessage();
+}
+ $tbl_name = "UserInfo";
 
 // Define $myusername and $mypassword from User Form
 $myusername=$_POST['myusername'];
 $mypassword=$_POST['mypassword'];
 
-// To protect MySQL injection (more detail about MySQL injection)
-$myusername = stripslashes($myusername);
-$mypassword = stripslashes($mypassword);
-$myusername = mysql_real_escape_string($myusername);
-$mypassword = mysql_real_escape_string($mypassword);
 
-$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
-$result=mysql_query($sql);
+$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+$result=$dbh->query($sql);
 
 // Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
+$count=$result->rowCount();
 
 // If result matched $myusername and $mypassword, table row must be 1 row
 
 if($count==1){
 
 // Register $myusername, $mypassword and redirect to file "user_login_success.php"
-session_register("myusername");
-session_register("mypassword");
+$_SESSION["myusername"] = $myusername;
+$_SESSION["mypassword"]= $mypassword;
 header("location:user_login_success.php");
 }
 else {

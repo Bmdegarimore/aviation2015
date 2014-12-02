@@ -4,73 +4,79 @@
 
 	<head>
 		<title>Login Page Aviation</title>
-		<link rel="stylesheet" type="text/css" href="css/login.css">
+    <style>
+                body {
+              background: #eee !important;  
+            }
+
+            .wrapper {  
+              margin-top: 80px;
+              margin-bottom: 80px;
+            }
+
+            .form-signin {
+              max-width: 380px;
+              padding: 15px 35px 45px;
+              margin: 0 auto;
+              background-color: #fff;
+              border: 1px solid rgba(0,0,0,0.1);  
+
+              .form-signin-heading,
+              .checkbox {
+                margin-bottom: 30px;
+              }
+
+              .checkbox {
+                font-weight: normal;
+              }
+
+              .form-control {
+                position: relative;
+                font-size: 16px;
+                height: auto;
+                padding: 10px;
+                @include box-sizing(border-box);
+
+                &:focus {
+                  z-index: 2;
+                }
+              }
+
+              input[type="text"] {
+                margin-bottom: -1px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+              }
+
+              input[type="password"] {
+                margin-bottom: 20px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+              }
+            }
+
+    </style>
+		<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
 	</head>
 
 
 	<body>
-        <div id="loginbox">
-		<div id="loginbutton">
-		<a href="#login-box" class="login-window">Login / Sign In</a>
-		</div>
-        </div>
-		<div id="login-box" class="login-popup">
-		<a href="login.html" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-  		<form method="post" class="signin" action="main.html">
-        <fieldset class="textbox">
-        <label class="username">
-        <span>Username or email</span>
-        <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
-        </label>
-        <label class="password">
-        <span>Password</span>
-        <input id="password" name="password" value="" type="password" placeholder="Password">
-        </label>
-        <button class="submit button">Sign in</button>
-        <p>
-        <a class="forgot" href="main.html">Forgot your password?</a>
-        </p>        
-        </fieldset>
-  </form>
-</div>
 
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script>
-			$(document).ready(function() {
-                $('a.login-window').click(function() {
-    
-                    //Getting the variable's value from a link 
-                    var loginBox = $(this).attr('href');
+      <!-- Login Box -->
+  <div class="wrapper">
+    <br>
+    <form class="form-signin" method="post" action="user_login.php"> 
+      <h1 class="form-signin-heading">Green River Aviation Website</h1>      
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="myusername" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control" name="mypassword" placeholder="Password" required=""/>      
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Login</button>   
+    </form>
+  </div>
 
-                    //Fade in the Popup
-                    $(loginBox).fadeIn(300);
-                    
-                    //Set the center alignment padding + border see css style
-                    var popMargTop = ($(loginBox).height() + 24) / 2; 
-                    var popMargLeft = ($(loginBox).width() + 24) / 2; 
-                    
-                    $(loginBox).css({ 
-                        'margin-top' : -popMargTop,
-                        'margin-left' : -popMargLeft
-                    });
-                    
-                    // Add the mask to body
-                    $('body').append('<div id="mask"></div>');
-                    $('#mask').fadeIn(300);
-                    
-                    return false;
-                });
-
-                // When clicking on the button close or the mask layer the popup closed
-                $('a.close, #mask').live('click', function() { 
-                    $('#mask , .login-popup').fadeOut(300 , function() {
-                        $('#mask').remove();  
-                    }); 
-
-                    return false;
-                });
-            });
-		</script>
 	</body>
 
 </html>

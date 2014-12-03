@@ -16,13 +16,15 @@
   //Test statement to grab the _GET section
   if(isset($_GET['secid'])){
     //sectionid is passed from the index to the post array
-    $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = $_GET['secid']");
+    $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = ".urldecode($_GET['secid']));
   }
   $STM->execute();
   $STMrecords = $STM->fetchAll();
 
   //create the card script
   print "<script type='text/javascript'>\n";
+    print "var curCard = 0;";
+
     //Initialize a counting variable to incremement card id's
     $idIncrementer = 1;
 
@@ -57,7 +59,7 @@
     print "function next() {
         $(\".word\").html(\"<h2>\" + card[curCard].word + \"</h2>\");
         $(\"#audioPlay\").attr(\"src\",card[curCard].audio);
-        $(\".imageBorder\").attr(\"src\",card[curCard].image);
+        $(\".imageBorder\").attr(\"src\",card[curCard].img);
         $(\".desc\").html(card[curCard].description);
         if (curCard<cardSize){
           curCard++;
@@ -65,7 +67,7 @@
         else if (curCard == cardSize){
           curCard = 0;
         }
-      };
+      }\n\n
 
       function prev() {
         if (curCard > 0){
@@ -76,9 +78,9 @@
         }
         $(\".word\").html(\"<h2>\" + card[curCard].word + \"</h2>\");
         $(\"#audioPlay\").attr(\"src\",card[curCard].audio);
-        $(\".imageBorder\").attr(\"src\",card[curCard].image);
+        $(\".imageBorder\").attr(\"src\",card[curCard].img);
         $(\".desc\").html(card[curCard].description);
-      };";
+      }\n\n";
 
   print "</script>";
 ?>

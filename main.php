@@ -1,3 +1,14 @@
+<?php
+//Start a session
+session_start();
+// Start the buffer
+ob_start();
+
+if ((isset($_SESSION)) && ($_SERVER["REQUEST_METHOD"] !== "POST"))
+{
+    session_unset();
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -78,3 +89,7 @@
     ?>
   </body>
 </html>
+<?php
+//Flush buffer
+ ob_flush();
+?>

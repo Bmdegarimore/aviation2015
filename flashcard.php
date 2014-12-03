@@ -1,3 +1,14 @@
+<?php
+//Start a session
+session_start();
+// Start the buffer
+ob_start();
+
+if ((isset($_SESSION)) && ($_SERVER["REQUEST_METHOD"] !== "POST"))
+{
+    session_unset();
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="css/flashcard.css">
 	</head>
 
-	<body onload="grid()">
+	<body>
 		<div class = "menu">
 			<a href="main.php"><img src="images/menu.png" alt="menu"></a>
 		</div>
@@ -39,6 +50,7 @@
 		?>
 		<script>
 			$(document).ready(function() {
+				next();
 				$("#prev").click(function () {
 					prev();
 				});
@@ -51,7 +63,15 @@
 					document.getElementById("audioPlay").load();
 					document.getElementById("audioPlay").play();	
 				});
+
+				function grid(){
+					next();
+				}
 			});
 		</script>
 	</body>
 </html>
+<?php
+//Flush buffer
+ ob_flush();
+?>

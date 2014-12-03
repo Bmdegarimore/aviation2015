@@ -2,7 +2,7 @@
 
     //Use php to grab the maximum number of cards available
     if(isset($_GET['secid'])){
-        $STM = $dbh->prepare("SELECT count(*) FROM Cards WHERE secid = $_GET['secid']");
+        $STM = $dbh->prepare("SELECT count(*) FROM Cards WHERE secid = " . $_GET['secid']);
     }
     $STM->execute();
     $STMrecords = $STM->fetchAll();
@@ -142,7 +142,7 @@ print "
 
         
         // Questions image and audio
-        $(\"#image\").attr(\"src\", arrayAns[(correctNum -1)].image);
+        $(\"#image\").attr(\"src\", arrayAns[(correctNum -1)].img);
         $(\"#audioPlay\").attr(\"src\", arrayAns[(correctNum -1)].audio);
        }      
     }

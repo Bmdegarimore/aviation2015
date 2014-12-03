@@ -7,7 +7,7 @@
 
 	<body onload="grid()">
 		<div class = "menu">
-			<a href="main.html"><img src="images/menu.png" alt="menu"></a>
+			<a href="main.php"><img src="images/menu.png" alt="menu"></a>
 		</div>
 
 		<div id="content">

@@ -25,7 +25,7 @@
 			<input type="submit" id="submit" onClick="launch();" value="Save and Return to Main Menu">
 			<script>
 				function launch(){
-					window.location = "main.html";
+					window.location = "main.php";
 				}
 			</script>
 		</div>

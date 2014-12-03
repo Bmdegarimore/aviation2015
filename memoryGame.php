@@ -11,7 +11,7 @@
     </div>
     <div class = "menu">
       <div id="left" class="side">
-        <a href="main.html" class="buttons"><img src="images/menu.png" alt="menu"></a>
+        <a href="main.php" class="buttons"><img src="images/menu.png" alt="menu"></a>
       </div>
       <div id="right">
         <h1><a href="memoryGameTutorial.html">Help</a></h1>

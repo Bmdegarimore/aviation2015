@@ -16,7 +16,7 @@ ini_set('display_errors',1);
  <body>
  <p>Login Successful</P>
  	<br>
- <form action="main.html">
+ <form action="main.php">
  <button class="btn btn-lg btn-primary btn-block" type="submit" value="Onward">Proceed to Website</button>
 </form>
  </body>

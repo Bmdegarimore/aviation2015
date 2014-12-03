@@ -3,6 +3,11 @@
   session_start();
   //*** Start the buffer
 ob_start();
+
+ if(empty($_SESSION["myemail"])){
+    session_unset();
+    header("location:index.php");
+ }
 ?>
 <!DOCTYPE html>
 
@@ -36,15 +41,15 @@ ob_start();
     <h2>Card Maintenance</h2>
     <div class="row">
         <div class="col-md-2" >
-            <ul class="nav nav-pills navbar-default">
+            <ul class="nav nav-pills nav-stacked">
 
             <?php
               // Nav buttons
-              $options = array("list cards" => "cardList", "add card" => "cardAdd", "delete card" => "cardDelete");
+              $options = array("list cards" => "cardsList", "add card" => "cardAdd", "delete card" => "cardDelete");
               
               foreach ($options as $index => $detail) {
                 echo "<li ";
-                if ($nav == $detail){
+                if ($_GET['nav'] == $detail){
                   echo "class='active' ";
                 };
                 echo "><a href='?page=cards&nav=".$detail."'>";
@@ -61,7 +66,7 @@ ob_start();
               {
                 $nav = $_GET['nav'];
               }else{
-                $nav = "cardList"; //Default
+                $nav = "cardsList"; //Default
               }
               include ($nav.".php");
             ?>

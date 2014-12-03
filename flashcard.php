@@ -4,10 +4,11 @@ session_start();
 // Start the buffer
 ob_start();
 
-if ((isset($_SESSION)) && ($_SERVER["REQUEST_METHOD"] !== "POST"))
-{
+    if(empty($_SESSION["myusername"])){
     session_unset();
-}
+    header("location:index.html");
+    }
+
 ?>
 <!DOCTYPE html>
 <html>

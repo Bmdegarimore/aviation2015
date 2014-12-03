@@ -1,5 +1,4 @@
 <?php
-
 //Start a session
 session_start();
 // Start the buffer
@@ -13,7 +12,7 @@ $tbl_name="AdminInfo"; // Table name
     try {
         $dbh = new PDO("mysql:host=$hostname;
                        dbname=caseym_Aviation", $username, $password);
-        echo "Connected to database.";
+        //echo "Connected to database.";
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -42,7 +41,7 @@ if(isset($_POST[Submit]))
     
     // Register $myemail, $mypassword and redirect to file "adminMenu.php"
      $_SESSION["myemail"] = $myemail;
-     header("Location:adminMenu.php");
+     header("Location:adminMenu.php?page=cards&nav=cardsList");
      }
      else {
      // Records an error and goes back to index

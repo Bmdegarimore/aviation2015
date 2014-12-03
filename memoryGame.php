@@ -1,3 +1,14 @@
+<?php
+//Start a session
+session_start();
+// Start the buffer
+ob_start();
+
+    if(empty($_SESSION["myusername"])){
+    session_unset();
+    header("location:index.html");
+    }
+?>
 <!DOCTYPE html>
 
 <html>

@@ -3,6 +3,8 @@
   session_start();
   //*** Start the buffer
 ob_start();
+
+
 ?>
 <!DOCTYPE html>
 
@@ -36,15 +38,16 @@ ob_start();
     <h2>Sections</h2>
     <div class="row">
         <div class="col-md-2" >
-            <ul class="nav nav-pills navbar-default">
+            <ul class="nav nav-pills nav-stacked">
 
             <?php
               // Nav buttons
-              $options = array("list sections" => "sectionList", "lock/Unlock section" => "sectionLock", "add" => "sectionAdd");
+              $options = array("list sections" => "sectionsList", "lock/Unlock section" => "sectionLock", "add" => "sectionAdd");
               
               foreach ($options as $index => $detail) {
                 echo "<li ";
-                if ($nav == $detail){
+                if ($_GET['nav'] == $detail){
+                  
                   echo "class='active' ";
                 };
                 echo "><a href='?page=sections&nav=".$detail."'>";
@@ -61,7 +64,7 @@ ob_start();
               {
                 $nav = $_GET['nav'];
               }else{
-                $nav = "sectionList"; //Default
+                $nav = "sectionsList"; //Default
               }
               include ($nav.".php");
             ?>

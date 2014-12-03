@@ -2,7 +2,8 @@
   //*** Start a session
   session_start();
   //*** Start the buffer
-ob_start();
+    ob_start();
+
 ?>
 <!DOCTYPE html>
 
@@ -13,7 +14,6 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Administrator Accounts</title>
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css">  
-
     
   </head>
   <body>
@@ -36,15 +36,15 @@ ob_start();
     <h2>Admins accounts</h2>
     <div class="row">
         <div class="col-md-2" >
-            <ul class="nav nav-pills navbar-default">
+            <ul class="nav nav-pills nav-stacked">
 
             <?php
               // Nav buttons
-              $options = array("list users" => "list", "add/Delete" => "add", "edit info" => "change", "change password" => "chngPassword");
+              $options = array("list users" => "adminsList", "add" => "adminAdd", "delete" => "adminDelete", "change password" => "adminPassword");
               
               foreach ($options as $index => $detail) {
                 echo "<li ";
-                if ($nav == $detail){
+                if ($_GET['nav'] == $detail){
                   echo "class='active' ";
                 };
                 echo "><a href='?page=admins&nav=".$detail."'>";
@@ -61,7 +61,7 @@ ob_start();
               {
                 $nav = $_GET['nav'];
               }else{
-                $nav = "list"; //Default
+                $nav = "adminsList"; //Default
               }
               include ($nav.".php");
             ?>

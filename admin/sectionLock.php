@@ -3,7 +3,7 @@
     session_start();
     //*** Start the buffer
     ob_start();
-
+   
     //See if the form has been submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Isset used for buttons
@@ -29,12 +29,7 @@
                 $statement->bindParam(':key',$_POST[$i]);
                 $statement->bindParam(':value',$_POST[$sec]);
                 $statement->execute();
-            }
-            /*   
-            $statement->bindParam(2, $key);
-            $statement->bindParam(1, $value);
-            */
-    
+            }    
             echo "Sent to database";
         
         

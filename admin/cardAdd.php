@@ -1,8 +1,9 @@
 <?php
-  //*** Start a session
+//*** Start a session
   session_start();
   //*** Start the buffer
-ob_start();
+  ob_start();
+
 ?>
 
 <html lang="en">
@@ -176,7 +177,7 @@ ob_start();
   ?>
     <form role="form" action="adminMenu.php?page=cards&nav=cardAdd" method="post" enctype="multipart/form-data">
      <div class="form-group">
-        <label>Choose a Section to save too:</label>
+        <label>Choose a Section to save to:</label>
         <select class="inputFormat" name="section" id="section">
           
           <?php

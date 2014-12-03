@@ -54,5 +54,31 @@
     //make getter functions
     print "function getCards(){\nreturn card;\n} \nfunction getCard(index){\nreturn card[index-1];\n}\n";
 
+    print "function next() {
+        $(\".word\").html(\"<h2>\" + card[curCard].word + \"</h2>\");
+        $(\"#audioPlay\").attr(\"src\",card[curCard].audio);
+        $(\".imageBorder\").attr(\"src\",card[curCard].image);
+        $(\".desc\").html(card[curCard].description);
+        if (curCard<cardSize){
+          curCard++;
+        }
+        else if (curCard == cardSize){
+          curCard = 0;
+        }
+      };
+
+      function prev() {
+        if (curCard > 0){
+          curCard--;
+        }
+        else if (curCard == 0){
+          curCard = cardSize;
+        }
+        $(\".word\").html(\"<h2>\" + card[curCard].word + \"</h2>\");
+        $(\"#audioPlay\").attr(\"src\",card[curCard].audio);
+        $(\".imageBorder\").attr(\"src\",card[curCard].image);
+        $(\".desc\").html(card[curCard].description);
+      };";
+
   print "</script>";
 ?>

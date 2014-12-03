@@ -51,9 +51,9 @@
               print "<div class=\"left\">
                 <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
                   <ul>
-                    <li class =\"inline\"><a id=\"one\" href=\"flashcard.php\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
-                    <li class =\"inline\"><a href=\"memoryGame.php\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
-                    <li class = \"inline\"><a href=\"quiz.php\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
+                    <li class =\"inline\"><a id=\"one\" href=\"flashcard.php?secid='$sectionIncrementer'\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
+                    <li class =\"inline\"><a href=\"memoryGame.php?secid='$sectionIncrementer'\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
+                    <li class = \"inline\"><a href=\"quiz.php?secid='$sectionIncrementer'\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
                   </ul>
                 </li>  
               </div>";
@@ -62,9 +62,9 @@
               print "<div class=\"right\">
               <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
                 <ul>
-                  <li class =\"inline\"><a id=\"two\" href=\"flashcard.php\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
-                  <li class =\"inline\"><a href=\"memoryGameTutorial.html\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
-                  <li class = \"inline\"><a href=\"quizTutorial.html\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
+                  <li class =\"inline\"><a id=\"two\" href=\"flashcard.php?secid='$sectionIncrementer'\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
+                  <li class =\"inline\"><a href=\"memoryGame.php?secid='$sectionIncrementer'\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
+                  <li class = \"inline\"><a href=\"quiz.php?secid='$sectionIncrementer'\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
                 </ul>
               </li> 
               </div></div>";

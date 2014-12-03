@@ -38,6 +38,8 @@
 				<input type="submit" id="submit" value="Submit Answer" onClick="checkShapeDrop(event);">
 			</div>
 
+			<h1><a href="quizTutorial.html">Help</a></h1>
+
 			<script src="http://code.jquery.com/jquery.js"></script>
 			<?php
 				include "sectionGrabber.php";

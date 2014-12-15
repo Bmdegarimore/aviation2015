@@ -20,11 +20,12 @@
 	$tbl_name = "UserInfo";
 
 	// Define $myusername and $mypassword from User Form
-	$myusername=$_POST['myusername'];
+	//$myusername=$_POST['myusername'];
 	$mypassword=$_POST['mypassword'];
 
 
-	$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+	//$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+	$sql = "SELECT * FROM $tbl_name WHERE password='$mypassword'";
 	$result=$dbh->query($sql);
 
 	// Mysql_num_row is counting table row
@@ -35,8 +36,9 @@
 	if($count==1){
 
 		// Register $myusername, $mypassword and redirect to file "user_login_success.php"
-		$_SESSION["myusername"] = $myusername;
-		$_SESSION["mypassword"]= $mypassword;
+		/*$_SESSION["myusername"] = $myusername;
+		$_SESSION["mypassword"]= $mypassword;*/
+		$_SESSION["loggedin"] = 'true';
 		header("location:main.php");
 	}
 	else {

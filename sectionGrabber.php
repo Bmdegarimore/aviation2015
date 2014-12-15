@@ -4,9 +4,13 @@ session_start();
 // Start the buffer
 ob_start();
 
-    if(empty($_SESSION["myusername"])){
+    /*if(empty($_SESSION["myusername"])){
     session_unset();
     header("location:index.html");
+    }*/
+    if(empty($_SESSION["loggedin"])){
+      session_unset();
+      header("location:index.html");
     }
 
  //Connect to the Database

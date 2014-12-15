@@ -82,7 +82,7 @@
       <!-- Footer -->
       <hr>
       <footer>
-        <p><a href="admin/index.php">Administration</a></p>
+        <p><a href="../index.html">Student Page</a></p>
       </footer>
       
     </div>

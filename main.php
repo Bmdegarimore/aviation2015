@@ -93,6 +93,10 @@
       print "<script src=\"script/mainScript.js\"></script>";
       print "<script src='bootstrap/dist/js/bootstrap.min.js'></script>";
     ?>
+    <hr>
+    <footer>
+      <p><a href="admin/index.php">Administration</a></p>
+    </footer>
   </body>
 </html>
 <?php

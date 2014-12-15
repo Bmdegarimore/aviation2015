@@ -41,5 +41,9 @@ ob_start();
       require "sectionGrabber.php";
       require "memScript.php";
     ?>
+  <hr>
+  <footer>
+    <p><a href="admin/index.php">Administration</a></p>
+  </footer>
   </body>
 </html>

@@ -61,6 +61,10 @@ ob_start();
 				include "quizScript.php";
 			?>
 		</div>
+		<hr>
+    	<footer>
+      		<p><a href="admin/index.php">Administration</a></p>
+    	</footer>
 	</body>
 </html>
 <?php

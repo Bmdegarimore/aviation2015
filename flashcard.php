@@ -74,6 +74,10 @@ ob_start();
 				}
 			});
 		</script>
+		<hr>
+    	<footer>
+      		<p><a href="admin/index.php">Administration</a></p>
+    	</footer>
 	</body>
 </html>
 <?php

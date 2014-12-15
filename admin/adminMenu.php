@@ -82,7 +82,7 @@
       <!-- Footer -->
       <hr>
       <footer>
-        <p>&copy; Company 2014</p>
+        <p><a href="admin/index.php">Administration</a></p>
       </footer>
       
     </div>

@@ -18,26 +18,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Main Page</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- Bootstrap -->
+      <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <title>Main Page</title>
+      <!--Styles Linked -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+      <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
  
   </head>
 
   <body>
-    <div class="dropdown">
+    <div class="conatiner-fluid">
+      <div class="row container-fluid">
       <ul class="nav nav-pills">
         <li>
           <a href="logout.php">Logout</a>
         </li>
       </ul>
     </div>
-    <h1>Aviation</h1>
-    <img src="images/green-river-logo-white.png">
+      <div class="row text-center">
+        <h1>Aviation English</h1>
         <br>
         <p>Welcome to the Aviation website for Green River Community College. Please click on a section to get started!</p>
-    <div id="listContainer">
-      <ul id="expList">
+      </div>
+      <div id='accordion' class="container-fluid">
+        
         <?php
           //Connect to the Database
           require "db.php";
@@ -57,43 +73,30 @@
           $STMrecords = $STM->fetch();
           $sectionIncrementer=1;
           while($sectionIncrementer <= $STMrecords[0]){
-            if($sectionIncrementer%2 == 1){
-              print "<div class='boxDesign'>";
-              print "<div class=\"left\">
-                <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
-                  <ul>
-                    <li class =\"inline\"><a id=\"one\" href=\"flashcard.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
-                    <li class =\"inline\"><a href=\"memoryGame.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
-                    <li class = \"inline\"><a href=\"quiz.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
-                  </ul>
-                </li>  
-              </div>";
-            }
-            else {
-              print "<div class=\"right\">
-              <li>Section $sectionIncrementer <br><span class='smaller'>Click Here!</span>
-                <ul>
-                  <li class =\"inline\"><a id=\"two\" href=\"flashcard.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/flashcard.png\"><h2>Flash Cards</h2></a></li> 
-                  <li class =\"inline\"><a href=\"memoryGame.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/memoryGame.png\"><h2>Memory Game</h2></a></li>
-                  <li class = \"inline\"><a href=\"quiz.php?secid=".urlencode($sectionIncrementer)."\"><img src=\"images/quiz.png\"><h2>Quiz</h2></a></li>
-                </ul>
-              </li> 
-              </div></div>";
-            }
+              print "<h2>Section $sectionIncrementer</h2>
+                <div class='content'>
+                    <a class='col-xs-4' id=\"one\" href=\"flashcard.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/flashcard.png\"><h2>Flash Cards</h2></a> 
+                    <a class='col-xs-4' href=\"memoryGame.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/memoryGame.png\"><h2>Memory Game</h2></a>
+                    <a class='col-xs-4' href=\"quiz.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/quiz.png\"><h2>Quiz</h2></a>
+                </div>";
             $sectionIncrementer++;
           }
-        //listContainer and expList closing
-        print "</ul></div>";
-
-      //Scripts
-      print "<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>";
-      print "<script src=\"script/mainScript.js\"></script>";
-      print "<script src='bootstrap/dist/js/bootstrap.min.js'></script>";
+        print "</div>";
+      
     ?>
-    <hr>
-    <footer>
-      <p><a href="admin/index.php">Administration</a></p>
-    </footer>
+    
+      <footer class="panel-footer">
+       
+        <img class="center-block img-responsive" src="images/green-river-logo-white.png" alt="Green River Logo">
+        <hr>
+        <p><a href="admin/index.php">Administration</a></p>
+      </footer>
+    </div>
+      
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src='bootstrap/dist/js/bootstrap.min.js'></script>
+    <script src='//code.jquery.com/ui/1.11.2/jquery-ui.js'></script> 
+    <script src="script/mainScript.js"></script>
   </body>
 </html>
 <?php

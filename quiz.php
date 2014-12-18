@@ -16,55 +16,144 @@ ob_start();
 <!doctype html>
 <html>
 	<head>
-		<title>Match Quiz</title>
-		<link  rel="stylesheet" href="css/quizStyle.css">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+	  <!-- Bootstrap -->
+	  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+	  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	  <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  <![endif]-->
+
+	  <title>Match Quiz</title>
+	  <link  rel="stylesheet" href="css/quizStyle.css">
 	</head>
 	<body>
-		<div id="wrapper">
-			<div id="section">
+		<div id="wrapper" class="container-fluid">
+			<header id="section" class="container-fluid text-center">
 				<h1>Section Quiz</h1>
-				
-			</div>
+			</header>
 
-			<div id="matching_area">
-				<div class="left">
-					<h1 id="questionNum"></h1>
+			<div id="matching_area" class="row container-fluid">
+				<div class="col-xs-6">
+					<h1 id="questionNum" class="text-center"></h1>
 
-					<div class="image_border">
-						<img id="image" onClick="" draggable="false"  alt="image">
-						<audio id="audioPlay" autoplay></audio>
+					<div class="image_border container-fluid">
+						<img id="image" class="img-responsive" draggable="false"  alt="image">
 					</div>		
 									
 				</div>
 				
-				<div class="right">
+				<div class="col-xs-6">
 					<h1>Choose an answer:</h1>
 					<div id="choices">
-						<h2 class= "select" id="answer1" draggable="false"></h2>
-						<h2 class= "select" id="answer2" draggable="false"></h2>
-						<h2 class= "select" id="answer3" draggable="false"></h2>
-						<h2 class= "select" id="answer4" draggable="false"></h2>
+						<h2 class= "select text-center" id="answer1" draggable="false"></h2><audio id="audioPlay1"></audio>
+						<h2 class= "select text-center" id="answer2" draggable="false"></h2><audio id="audioPlay2"></audio>
+						<h2 class= "select text-center" id="answer3" draggable="false"></h2><audio id="audioPlay3"></audio>
+						<h2 class= "select text-center" id="answer4" draggable="false"></h2><audio id="audioPlay4"></audio>
 					</div>
 					
 				</div>
 			</div>
-
-			<div id="bottom">
-				<input type="submit" id="submit" value="Submit Answer" onClick="checkShapeDrop(event);">
+			
+			<div id="bottom" class="container-fluid">
+			    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+			      <button type="button" id="prev" class="btn btn-lg btn-default col-xs-6">Previous</button>
+			      <button type="button" id="next" class="btn btn-lg btn-default col-xs-6">Next</button>
+			    </div>
 			</div>
-
-			<h1><a href="quizTutorial.html">Help</a></h1>
-
+			<div class="container-fluid">
+			<a href="quizTutorial.html"><img id='menu' src="images/menu.png" alt="menu"></a>
+			<a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+			</div>
 			<script src="http://code.jquery.com/jquery.js"></script>
 			<?php
-				include "sectionGrabber.php";
-				include "quizScript.php";
+			   //Connect to the Database
+			    require "db.php";
+			  
+			    try {
+			      $dbh = new PDO("mysql:host=$hostname;
+					     dbname=caseym_Aviation", $username, $password);
+			      //echo "Connected to database.";
+			    } 
+			    catch (PDOException $e) {
+			      echo $e->getMessage();
+			    }
+			
+			
+			  //Use php to grab the maximum number of cards available
+			  if(isset($_GET['secid'])){
+			      $STM = $dbh->prepare("SELECT count(*) FROM Cards WHERE secid = " . $_GET['secid']);
+			  }
+			  $STM->execute();
+			  $STMrecords = $STM->fetchAll();
+			  //create a variable to store the maximum number of cards
+			  $numCards = $STMrecords[0];
+		      
+			  //Print out an error that there are not enough cards to play the game
+			  if ($numCards < 4) {
+			      print "<h1>THERE ARE NOT ENOUGH CARDS IN THIS SECTION TO PLAY THE GAME, PLEASE CONTACT YOUR INSTRUCTOR</h1>";
+			  }
+			  
+			  //Create Struct to hold card info
+			  class CardStruct{
+			    public $id;
+			    public $word;
+			    public $image;
+			    public $audio;
+			    public $sentence;
+			  }
+			  
+			  //Array of cards in PHP
+			  $deck[(int)$numCards];
+			
+			  //pull the card section default to 1? 
+			  $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = 1");
+			  //Test statement to grab the _GET section
+			  if(isset($_GET['secid'])){
+			    //sectionid is passed from the index to the post array
+			    $STM = $dbh->prepare("SELECT term, img, audio, sentence FROM Cards WHERE secid = ".urldecode($_GET['secid']));
+			  }
+			  $STM->execute();
+			  $STMrecords = $STM->fetchAll();
+			  $idIncrementer = 1;
+			  foreach($STMrecords as $row){
+			    //initialize a struct
+			    $deck[($idIncrementer-1)] = new CardStruct();
+			    $deck[($idIncrementer-1)]->id = "$idIncrementer";
+			    $deck[($idIncrementer-1)]->word = "$row[0]";
+			    $deck[($idIncrementer-1)]->image = "$row[1]";
+			    $deck[($idIncrementer-1)]->audio = "$row[2]";
+			    $deck[($idIncrementer-1)]->sentence = "$row[3]";
+			    
+			    //Increments ID
+			    $idIncrementer++;
+			  }
+			  /*echo '<pre>';
+			  print_r($deck);
+			  echo  '</pre>'; */
 			?>
+			<script>
+			  var card = <?php echo json_encode($deck); ?>;
+			</script>
+			<script src="script/cardManager2.js"></script>
+			<script src="script/quiz2Script.js"></script>
+		<footer class="container-fluid">
+		  <hr>
+		  <p><a href="admin/index.php">Administration</a></p>
+		</footer>
 		</div>
 		<hr>
-    	<footer>
-      		<p><a href="admin/index.php">Administration</a></p>
-    	</footer>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+
 	</body>
 </html>
 <?php

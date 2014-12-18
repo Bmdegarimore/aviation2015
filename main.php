@@ -27,11 +27,8 @@
   <body>
     <div class="dropdown">
       <ul class="nav nav-pills">
-        <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Account<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
+        <li>
+          <a href="logout.php">Logout</a>
         </li>
       </ul>
     </div>

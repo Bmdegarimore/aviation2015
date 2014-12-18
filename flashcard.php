@@ -74,9 +74,9 @@ ob_start();
 				}
 			});
 		</script>
-		<hr>
     	<footer>
-      		<p><a href="admin/index.php">Administration</a></p>
+    		<hr>
+      		<a href="admin/index.php">Administration</a>
     	</footer>
 	</body>
 </html>

@@ -1,5 +1,6 @@
       body{
-       background: url("../images/8bitsky2.png") no-repeat center center fixed;
+       background-color: #237457;
+       
         -webkit-background-size: cover;
          -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -15,10 +16,11 @@
         margin-bottom: 5%;
         border: solid;
         background-color: #828d8f;
+        line-height: 2%;
       }
       
       .panel-footer{
-        background-color: #c3c2c2;
+        background-color: #303030;
       }
       
       .links{

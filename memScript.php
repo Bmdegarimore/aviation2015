@@ -53,14 +53,6 @@
          memory_array.push(cardSet3);
          memory_array.push(cardSet3);
          memory_array.push(cardSet4);
-         memory_array.push(cardSet4);
-         memory_array.push(cardSet1);
-         memory_array.push(cardSet1);
-         memory_array.push(cardSet2);
-         memory_array.push(cardSet2);
-         memory_array.push(cardSet3);
-         memory_array.push(cardSet3);
-         memory_array.push(cardSet4);
          memory_array.push(cardSet4);";
 
   print "Array.prototype.memory_tile_shuffle = function(){
@@ -79,16 +71,20 @@
     var output = \"\";
     memory_array.memory_tile_shuffle();
     for (var i = 0; i < memory_array.length; i++){
-      output += '<div id = \"title_' +i+ '\" onClick=\"memoryFlipTile(this,\''+memory_array[i].word+'\', \''+memory_array[i].audio+'\')\"></div>';
+      if (i == 4){
+        output +='<div id=\"center\">Matching Game</div>';
+      }
+      output += '<div class=\"clickableTIle\" id = \"title_' +i+ '\" onClick=\"memoryFlipTile(this,\''+memory_array[i].word+'\', \''+memory_array[i].audio+'\')\"></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
+    
   }";
 
   print "
   function memoryFlipTile(tile, val, audio) { 
     if(tile.innerHTML == \"\" && (memory_values.length < 2)) {
       tile.style.background = '#FFF';
-      tile.innerHTML = '<h3>' +val+ '</h3><audio id=\"audioPlay\" src= \"' +audio+'\" autoplay></audio>';
+      tile.innerHTML = '<h3 class=\"text-center\">' +val+ '</h3><audio id=\"audioPlay\" src= \"' +audio+'\" autoplay></audio>';
       if(memory_values.length == 0) {
         memory_values.push(val);
         memory_tile_ids.push(tile.id);
@@ -97,7 +93,10 @@
         memory_values.push(val);
         memory_tile_ids.push(tile.id);
         if(memory_values[0] == memory_values[1]){
-          tiles_flipped += 2;memory_values = [];
+          document.getElementById(memory_tile_ids[0]).style.background = 'green';
+          document.getElementById(memory_tile_ids[1]).style.background = 'green';
+          tiles_flipped += 2;
+          memory_values = [];
           memory_tile_ids = [];
           if(tiles_flipped == memory_array.length){
             alert(\"Congratulations!\");
@@ -108,11 +107,13 @@
           function flip2Back(){
             var tile_1 = document.getElementById(memory_tile_ids[0]);
             var tile_2 = document.getElementById(memory_tile_ids[1]);
+            tile_1.css = 'img-thumbnail img-responsive';
             tile_1.style.background = 'url(images/memoryGameCard.png) no-repeat';
-            tile_1.style.backgroundSize = '140px 140px';
+            tile_1.style.backgroundSize = '200px 200px';
             tile_1.innerHTML = \"\";
             tile_2.style.background = 'url(images/memoryGameCard.png) no-repeat';
-            tile_2.style.backgroundSize = '140px 140px';
+            tile_2.css = 'img-thumbnail img-responsive';
+            tile_2.style.backgroundSize = '200px 200px';
             tile_2.innerHTML = \"\";
             memory_values = [];
             memory_tile_ids = [];

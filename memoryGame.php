@@ -17,19 +17,31 @@ ob_start();
 
 <html>
   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- Bootstrap -->
+      <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
       <title>Memory Game</title>
       <link  rel="stylesheet" type="text/css" href="css/memoryStyle.css">
   </head>
 
   <body>
-    <div id="main">
-    </div>
+    <div class="container-fluid">
+    
     <div class = "menu">
       <div id="left" class="side">
-        <a href="main.php" class="buttons"><img src="images/menu.png" alt="menu"></a>
+        <a href="main.php" class="buttons"><img class="img-responsive"src="images/menu.png" alt="menu"></a>
       </div>
       <div id="right">
-        <h1><a href="memoryGameTutorial.html">Help</a></h1>
         <a id="resetId" class="buttons" onClick="newBoard()"><img src="images/reset.png" alt="reset game"></a>
       </div>
     </div>
@@ -41,9 +53,13 @@ ob_start();
       require "sectionGrabber.php";
       require "memScript.php";
     ?>
-  <footer>
-    <hr>
-    <a href="admin/index.php">Administration</a>
-  </footer>
+    </div>
+    <footer class="container-fluid">
+      <hr>
+      <a href="admin/index.php">Administration</a>
+      <a href="memoryGameTutorial.html">Help</a>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src='bootstrap/dist/js/bootstrap.min.js'></script>
   </body>
 </html>

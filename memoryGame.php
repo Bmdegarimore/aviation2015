@@ -36,24 +36,27 @@ ob_start();
 
   <body>
     <div class="container-fluid">
-    
-    <div class = "menu">
-      <div id="left" class="side">
-        <a href="main.php" class="buttons"><img class="img-responsive"src="images/menu.png" alt="menu"></a>
+      <div class = "row col-md-12">
+        <div class="col-md-6">
+          <a href="main.php" class="buttons"><img class="buttons img-responsive" src="images/menu.png" alt="menu"></a>
+        </div>
+        
+        <div class="col-md-6">
+          <a id="resetId" onClick="newBoard()"><img class="pull-right buttons img-responsive" src="images/reset.png" alt="reset game"></a>
+        </div>
       </div>
-      <div id="right">
-        <a id="resetId" class="buttons" onClick="newBoard()"><img src="images/reset.png" alt="reset game"></a>
+      <div class= "row">
+        <div id ="memory_board" class="container col-md-4 col-md-offset-4">
+        </div>
       </div>
     </div>
     
-    <div id ="memory_board"></div>
 
     <?php 
       //Get the card section script initializer 
       require "sectionGrabber.php";
       require "memScript.php";
     ?>
-    </div>
     <footer class="container-fluid">
       <hr>
       <a href="admin/index.php">Administration</a>
@@ -61,5 +64,6 @@ ob_start();
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src='bootstrap/dist/js/bootstrap.min.js'></script>
+    
   </body>
 </html>

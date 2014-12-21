@@ -1,15 +1,11 @@
-.container-fluid { 
-  background: url("../images/8bitseattle.png") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
+div.container-fluid {
+  padding-top: 2%;
+  padding-bottom: 4%;
+  background-color: #237457; 
 }
 
 .buttons{
-  margin:0em auto;
-  width: 15%;
+  width:15%;
 }
 
 .buttons:hover{
@@ -17,13 +13,8 @@
 }
 
 div#memory_board{
-  
-  background:#ccc;
-  border: #999 1px solid;
-  width: 680px;
-  height: 680px;
-  padding:24px;
-  margin: 80px auto;
+  background-color: gray;
+ 
 }
 
 div#memory_board > div {
@@ -47,23 +38,12 @@ div#memory_board > div {
   width: 100%;
 }
 
-#left{
-  float:left;
-}
-
-#right{
-  float:right;
-}
-img{
-  height: 100%;
-  width: 100%;
-}
-
 footer{
-  padding-bottom: 6%;
-  background-color: #c3c2c2;
+  padding-bottom: 2%;
+  background-color: #303030;
 }
 #center{
+  font-size: 250%;
   background-color: #c3c2c2;
   background-size: 200px 200px;
   border:#c3c2c2;
@@ -71,7 +51,7 @@ footer{
   height: 200px;
   float: left;
   margin: 5px;
-  padding: 20px;
+  
   cursor:pointer;
   text-align: center;
   

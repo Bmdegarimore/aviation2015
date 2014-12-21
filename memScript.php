@@ -8,6 +8,8 @@
   $STMrecords = $STM->fetchAll();
   //create a variable to store the maximum number of cards
   $numCards = $STMrecords[0];
+  // Used to add section number to center square
+  $sec = $_GET['secid'];
 
   //Print out an error that there are not enough cards to play the game
   if ($numCards < 4) {
@@ -72,9 +74,9 @@
     memory_array.memory_tile_shuffle();
     for (var i = 0; i < memory_array.length; i++){
       if (i == 4){
-        output +='<div id=\"center\">Matching Game</div>';
+        output +='<div id=\"center\" class=\"col-md-1\">Section<br>'+$sec+'</div>';
       }
-      output += '<div class=\"clickableTIle\" id = \"title_' +i+ '\" onClick=\"memoryFlipTile(this,\''+memory_array[i].word+'\', \''+memory_array[i].audio+'\')\"></div>';
+      output += '<div class=\"col-md-1 clickableTIle\" id = \"title_' +i+ '\" onClick=\"memoryFlipTile(this,\''+memory_array[i].word+'\', \''+memory_array[i].audio+'\')\"></div>';
     }
     document.getElementById('memory_board').innerHTML = output;
     

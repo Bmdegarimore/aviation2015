@@ -73,17 +73,23 @@
           $STMrecords = $STM->fetch();
           $sectionIncrementer=1;
           while($sectionIncrementer <= $STMrecords[0]){
+            $STM = $dbh->prepare("SELECT * FROM `Cards` WHERE secid = $sectionIncrementer HAVING count(*) >=4;");
+            $STM->execute();
+            $records = $STM->fetch();
+            if ($records[0]> 0){
               print "<h2>Section $sectionIncrementer</h2>
                 <div class='content'>
                     <a class='col-xs-4' id=\"one\" href=\"flashcard.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/flashcard.png\"><h2>Flash Cards</h2></a> 
                     <a class='col-xs-4' href=\"memoryGame.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/memoryGame.png\"><h2>Memory Game</h2></a>
                     <a class='col-xs-4' href=\"quiz.php?secid=".urlencode($sectionIncrementer)."\"><img class='links img-responsive' src=\"images/quiz.png\"><h2>Quiz</h2></a>
                 </div>";
+            }
             $sectionIncrementer++;
           }
         print "</div>";
       
     ?>
+  </div>
     
       <footer class="panel-footer">
        
@@ -91,8 +97,7 @@
         <hr>
         <p><a href="admin/index.php">Administration</a></p>
       </footer>
-    </div>
-      
+     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src='bootstrap/dist/js/bootstrap.min.js'></script>
     <script src='//code.jquery.com/ui/1.11.2/jquery-ui.js'></script> 

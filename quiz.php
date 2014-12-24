@@ -34,11 +34,11 @@ ob_start();
 	  <link  rel="stylesheet" href="css/quizStyle.css">
 	</head>
 	<body>
+		
+		<header id="section" class="container-fluid text-center">
+		    <h1>Section Quiz</h1>
+		</header>
 		<div id="wrapper" class="container-fluid">
-			<header id="section" class="container-fluid text-center">
-				<h1>Section Quiz</h1>
-			</header>
-
 			<div id="matching_area" class="row container-fluid">
 				<div class="col-xs-6">
 					<h1 id="questionNum" class="text-center"></h1>
@@ -68,8 +68,7 @@ ob_start();
 			    </div>
 			</div>
 			<div class="container-fluid">
-			<a href="quizTutorial.html"><img id='menu' src="images/menu.png" alt="menu"></a>
-			<a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+			    
 			</div>
 			<script src="http://code.jquery.com/jquery.js"></script>
 			<?php
@@ -134,21 +133,23 @@ ob_start();
 			    //Increments ID
 			    $idIncrementer++;
 			  }
-			  /*echo '<pre>';
-			  print_r($deck);
-			  echo  '</pre>'; */
+			  
 			?>
 			<script>
 			  var card = <?php echo json_encode($deck); ?>;
 			</script>
 			<script src="script/cardManager2.js"></script>
 			<script src="script/quiz2Script.js"></script>
+		    </div>
 		<footer class="container-fluid">
 		  <hr>
-		  <p><a href="admin/index.php">Administration</a></p>
+		  <p>
+		    <a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
+		    <a href="quizTutorial.html">Help</a>
+		    <a href="admin/index.php">Administration</a>
+		  </p>
 		</footer>
-		</div>
-		<hr>
+		
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

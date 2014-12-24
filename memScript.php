@@ -72,12 +72,15 @@
     tiles_flipped = 0;
     var output = \"\";
     memory_array.memory_tile_shuffle();
+    
     for (var i = 0; i < memory_array.length; i++){
+      
       if (i == 4){
         output +='<div id=\"center\" class=\"col-md-1\">Section<br>'+$sec+'</div>';
       }
       output += '<div class=\"col-md-1 clickableTIle\" id = \"title_' +i+ '\" onClick=\"memoryFlipTile(this,\''+memory_array[i].word+'\', \''+memory_array[i].audio+'\')\"></div>';
     }
+    
     document.getElementById('memory_board').innerHTML = output;
     
   }";

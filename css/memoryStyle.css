@@ -1,6 +1,6 @@
 div.container-fluid {
   padding-top: 2%;
-  padding-bottom: 4%;
+  padding-bottom: 2%;
   background-color: #237457; 
 }
 
@@ -14,6 +14,8 @@ div.container-fluid {
 
 div#memory_board{
   background-color: gray;
+  width: 660px;
+  padding: 15px;
  
 }
 
@@ -39,9 +41,9 @@ div#memory_board > div {
 }
 
 footer{
-  padding-bottom: 2%;
   background-color: #303030;
 }
+
 #center{
   font-size: 250%;
   background-color: #c3c2c2;

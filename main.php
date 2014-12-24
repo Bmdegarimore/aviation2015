@@ -73,9 +73,10 @@
           $STMrecords = $STM->fetch();
           $sectionIncrementer=1;
           while($sectionIncrementer <= $STMrecords[0]){
-            $STM = $dbh->prepare("SELECT * FROM `Cards` WHERE secid = $sectionIncrementer HAVING count(*) >=4;");
+            $STM = $dbh->prepare("select  s.* from Section s natural join Cards c WHERE s.secid = $sectionIncrementer and s.locked = '0'  and c.secid = $sectionIncrementer HAVING count(*) >=4");
             $STM->execute();
             $records = $STM->fetch();
+            
             if ($records[0]> 0){
               print "<h2>Section $sectionIncrementer</h2>
                 <div class='content'>

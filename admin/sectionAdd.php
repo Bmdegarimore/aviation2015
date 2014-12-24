@@ -89,8 +89,9 @@
     <div class="form-group form-group-lg">
         <label>
             <select name="lock" id="lock">
-                <option value="1">Lock Section</option>
                 <option value="0">Unlock Section</option>
+                <option value="1">Lock Section</option>
+                
             </select>
         </label>
     </div>

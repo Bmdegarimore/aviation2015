@@ -1,9 +1,9 @@
 html { 
-  background: url("../images/8bitseattlelow.png") no-repeat center center fixed; 
+  /*background: url("../images/8bitseattlelow.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 body {
@@ -24,6 +24,8 @@ p{
 #next{
 	float:right;
 	margin:1%;
+	width: 30%;
+	height: 50%;
 	position: static;
 
 }
@@ -31,10 +33,13 @@ p{
 #prev{
 	float:left;
 	margin: 1%;
+	width: 30%;
+	height: 50%;
 	position: static;
 }
 
 #audioIcon{
+	margin-top: 2.5%;
 	width: 10%;
 	height: 10%;
 	position: static;
@@ -53,10 +58,15 @@ p{
 }
 
 .imageBorder{
-	min-height: 400px;
+	min-width: 100px;
+	min-height: 100px;
+	max-width: 600px;
 	max-height: 400px;
+
+	width: 100%;
+	height: 100%;
+
 	position: static;
-	
 }
 
 #audioIcon:hover,#next:hover,#prev:hover{
@@ -68,6 +78,10 @@ p{
 	margin: 0em auto;
 	max-width: 500em;
 	max-height: 2em;
+}
+
+.jumbotron {
+	margin-top: 0%;
 }
 
 .menu
@@ -84,4 +98,12 @@ p{
 footer{
 	margin-right: 85%;
     background-color: #c3c2c2;
+}
+
+body {
+	background: url("../images/8bitseattlelow.png") no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }

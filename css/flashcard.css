@@ -101,9 +101,16 @@ footer{
 }
 
 body {
-	background: url("../images/8bitseattlelow.png") no-repeat center center fixed; 
+	/*background: url("../images/8bitseattlelow.png") no-repeat center center fixed; */
+	background-color: #237457; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+}
+
+footer{
+  margin-top: 1%;
+  padding-bottom: 2%;
+  background-color: #303030;
 }

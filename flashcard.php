@@ -88,10 +88,18 @@ ob_start();
 					}
 				});
 			</script>
+			<footer class="container-fluid">
+			  <hr>
+			  <p>
+			  	<a href="admin/index.php">Administration</a>
+			  </p>
+			</footer>
+
+			<!--
 	    	<footer>
 	    		<hr>
 	      		<a href="admin/index.php">Administration</a>
-	    	</footer>
+	    	</footer> -->
     	</div>
 
     	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

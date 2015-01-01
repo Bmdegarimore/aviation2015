@@ -32,6 +32,7 @@ ob_start();
 
 	  <title>Match Quiz</title>
 	  <link  rel="stylesheet" href="css/quizStyle.css">
+	
 	</head>
 	<body>
 		
@@ -141,11 +142,47 @@ ob_start();
 			<script src="script/cardManager2.js"></script>
 			<script src="script/quiz2Script.js"></script>
 		    </div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h1 class="modal-title" id="myModealLabel">Quiz Tutorial</h>
+		      </div>
+		      <div class="modal-body">
+
+			
+
+			<div class="row">
+			    <h3><b>Step 1:</b></h3>
+			<p class="text-center">You will see an image. You must match the term from the right side with the image. Click a term to hear the word!
+			</p>
+			<br>
+			    <img id='tutorial1' class="img-responsive" src="images/testTutorialCapture.png">
+			</div>
+			<hr>
+			<div class="row">
+			    <h3><b>Step 2:</b></h3>
+			<p class="text-center">To answer a question, click the term then click "Next". The answer will turn green if correct or red if incorrect.
+			</p>
+			    <img id='tutorial2' class="img-responsive" src="images/testTutorialCapture2.png">
+			</div>
+		      </div>
+		      <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
 		<footer class="container-fluid">
 		  <hr>
 		  <p>
 		    <a href="main.php" class="buttons"><img id='menu' src="images/menu.png" alt="menu"></a>
-		    <a href="quizTutorial.html">Help</a>
+		    <!-- Button trigger modal -->
+		    <img id='question' src="images/question.png" alt="help menu" data-toggle="modal" data-target="#myModal">
 		    <a href="admin/index.php">Administration</a>
 		  </p>
 		</footer>

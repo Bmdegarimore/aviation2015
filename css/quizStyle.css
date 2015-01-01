@@ -121,5 +121,16 @@ footer{
   padding-bottom: 2%;
   background-color: #303030;
 }
+.modal-header, .modal-footer{
+	background-color: #c3c2c2;
+}
+
+
+.modal-body{
+	margin: 0 auto;
+	background-color: #303030;
+	background-color: #c3c2c2;
+	
+}
 
 

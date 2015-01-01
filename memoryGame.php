@@ -51,6 +51,50 @@ ob_start();
       </div>
     </div>
     
+    <!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h1 class="modal-title" id="myModealLabel">Memory Game Tutorial</h>
+		      </div>
+		      <div class="modal-body">
+
+			
+
+			<div class="row">
+			    <h3><b>Layout</b></h3>
+			<p class="text-center">The top left button is a menu button. This returns you to the main page!<br>
+			<br> On the right hand side is the reset button. This will reset the game board, so that all tiles are blank! <br>
+				<br>Finally, in the center is the game board!
+                        </p>
+			<br>
+			    <img id='tutorial1' class="img-responsive" src="images/mgtut1.png">
+			</div>
+			<hr>
+			<div class="row">
+			    <h3><b>Selecting Cards</b></h3>
+			<p class="text-center">To flip a card over, click on one of the "?" cards!
+			</p>
+			    <img id='tutorial2' class="img-responsive" src="images/mgtut2.png">
+			</div>
+                        <hr>
+                        <div class="row">
+			    <h3><b>Completing the Game</b></h3>
+			<p class="text-center">To complete the game, you must match all the terms. <br>The matches must be the same term!
+                        Once you have finished the game, the board will reset. <br>Have fun!
+			</p>
+			    <img id='tutorial2' class="img-responsive" src="images/mgtut3.png">
+			</div>
+		      </div>
+		      <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    
 
     <?php 
       //Get the card section script initializer 
@@ -59,8 +103,10 @@ ob_start();
     ?>
     <footer class="container-fluid">
       <hr>
+      
+      <!-- Button trigger modal -->
+		    <img id='question' src="images/question.png" alt="help menu" data-toggle="modal" data-target="#myModal">
       <a href="admin/index.php">Administration</a>
-      <a href="memoryGameTutorial.html">Help</a>
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src='bootstrap/dist/js/bootstrap.min.js'></script>

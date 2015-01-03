@@ -23,6 +23,12 @@ var main = function(){
         question = 1;
     }
     
+    if (question <2) {
+            question = 1;
+            correct = 0;
+            document.getElementById("prev").style.visibility = "hidden";
+    }
+    
     // Once questions answered then result page loads.
     if(question > total){
 

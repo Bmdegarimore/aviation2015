@@ -20,12 +20,13 @@
         //If the data is valid, write to DB
         
                     
-           $sql = "UPDATE Section SET locked = :value WHERE sectitle = :key";
+            $sql = "UPDATE Section SET locked = :value WHERE sectitle = :key";
             $statement = $dbh->prepare($sql);
             
             for ($i = 1; $i <= $maxCount; $i++)
             {
                 $sec = "Section".$i;
+
                 $statement->bindParam(':key',$_POST[$i]);
                 $statement->bindParam(':value',$_POST[$sec]);
                 $statement->execute();
@@ -41,7 +42,8 @@
      <div class="form-group">
         <h2>Choose a Section to lock or unlock:</h2>
         
-        <table width="100%" class="display" id="table" cellspacing="0">
+        <!-- <table width="100%" class="display" id="table" cellspacing="0"> -->
+        <table width="100%" class="display" cellspacing="0">
             <thead>
                 <tr>
                     <th>Section#</th>
@@ -57,14 +59,14 @@
                     <th>Lock</th>
                 </tr>
             </tfoot>
+
             <tbody>
               <?php
                 //Display the Available sections to add too
-                  $sql="SELECT secid,sectitle, locked FROM Section ORDER BY secid";
+                  $sql="SELECT secid, sectitle, locked FROM Section ORDER BY secid";
                   $result = $dbh->query($sql);
                   // Display the sections locked or unlocked
                    foreach ($result as $row) {
-                        
                         printf("<tr><td>%s</td><input type='hidden' id='title' name='%s' value = '%s'>", $row['sectitle'], $row['secid'], $row['sectitle']);
                         if ($row['locked'] == 1){
                             printf("<td><input type='radio' name='%s' value = '0'>Unlock</td>", $row['sectitle']);
@@ -82,7 +84,7 @@
                         
     </div>
       
-      <button type="submit" class="btn btn-primary" >Unlock</button>
+      <button type="submit" class="btn btn-primary" >Update</button>
     </form>
 <?php
  //Flush buffer
